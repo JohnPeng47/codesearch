@@ -1,0 +1,11 @@
+*.pyc
+./*.json
+
+output.txt
+tests/repos/*
+output*
+*.prof
+*.ipynb
+dist/
+*.egg-info/
+.aider*
