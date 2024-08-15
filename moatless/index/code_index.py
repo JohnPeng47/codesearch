@@ -5,7 +5,7 @@ import mimetypes
 import os
 import shutil
 import tempfile
-from typing import List, Dict, Optional
+from typing import Tuple, List, Dict, Optional
 from enum import Enum
 
 import requests
@@ -295,7 +295,7 @@ class CodeIndex:
 
         return result
 
-    def semantic_search(
+    def old_semantic_search(
         self,
         query: Optional[str] = None,
         code_snippet: Optional[str] = None,
@@ -457,83 +457,179 @@ class CodeIndex:
 
         return SearchCodeResponse(message=message, hits=list(files_with_spans.values()))
 
-    def map_spans_to_search_result(
-        search_hit: CodeSnippet,
-        file: CodeFile,
+    def semantic_search(
+        self,
+        query: Optional[str] = None,
+        code_snippet: Optional[str] = None,
+        class_names: List[str] = None,
+        function_names: List[str] = None,
+        file_pattern: Optional[str] = None,
+        category: str = "implementation",
+        max_results: int = 25,
+        max_hits_without_exact_match: int = 100,
+        max_exact_results: int = 5,
+        max_spans_per_file: Optional[int] = None,
+        exact_match_if_possible: bool = False,
+    ) -> SearchCodeResponse:
+
+        if query is None:
+            query = ""
+
+        if class_names:
+            query += f", class {class_names}"
+
+        if function_names:
+            query += f", function {function_names}"
+
+        message = ""
+        if file_pattern:
+            if category != "test":
+                exclude_files = self._file_repo.matching_files("**/test*/**")
+            else:
+                exclude_files = []
+
+            matching_files = self._file_repo.matching_files(file_pattern)
+            matching_files = [
+                file for file in matching_files if file not in exclude_files
+            ]
+
+            if not matching_files:
+                print(
+                    f"semantic_search() No files found for file pattern {file_pattern}. Will search all files..."
+                )
+                message += f"No files found for file pattern {file_pattern}. Will search all files.\n"
+                file_pattern = None
+
+        search_results = self._vector_search(
+            query, file_pattern=file_pattern, exact_content_match=code_snippet
+        )
+
+        names = (class_names or []) + (function_names or [])
+
+        (
+            spans,
+            span_count,
+            spans_with_exact_query_match,
+            filtered_out,
+            require_exact_query_match,
+        ) = self.map_spans_to_search_results(
+            search_results,
+            self._file_repo,
+            query,
+            exact_match_if_possible,
+            max_results,
+            max_spans_per_file,
+            names,
+        )
+
+        if class_names or function_names:
+            print(
+                f"semantic_search() Filtered out {filtered_out} spans by class names {class_names} and function names {function_names}."
+            )
+
+        if require_exact_query_match:
+            print(
+                f"semantic_search() Found {spans_with_exact_query_match} code spans with exact match out of {span_count} spans."
+            )
+            message = f"Found {spans_with_exact_query_match} code spans with code that matches the exact query `{query}`."
+        else:
+            print(f"semantic_search() Found {span_count} spans")
+            message = f"Found {span_count} code spans."
+
+        return SearchCodeResponse(message=message, hits=list(spans))
+
+    def map_spans_to_search_results(
+        self,
+        search_results: List[CodeSnippet],
+        file_repo: FileRepository,
         query: str,
         exact_match_if_possible: bool,
         max_results: int,
         max_spans_per_file: Optional[int],
         names: Optional[List[str]],
     ):
-        spans = []
-        files_with_spans = {}
+        files_with_spans: Dict[str, SearchCodeHit] = {}
         span_count = 0
         spans_with_exact_query_match = 0
         filtered_out = 0
         require_exact_query_match = False
 
-        for span_id in search_hit.span_ids:
-            span = file.module.find_span_by_id(span_id)
-
-            if span:
-                spans.append(span)
-            else:
-                logger.debug(
-                    f"semantic_search() Could not find span with id {span_id} in file {file.file_path}"
+        for rank, search_hit in enumerate(search_results):
+            file = file_repo.get_file(search_hit.file_path)
+            if not file:
+                logger.warning(
+                    f"map_spans_to_search_results() Could not find file {search_hit.file_path}."
                 )
+                continue
 
-                spans_by_line_number = file.module.find_spans_by_line_numbers(
-                    search_hit.start_line, search_hit.end_line
-                )
+            file_spans = []
+            for span_id in search_hit.span_ids:
+                span = file.module.find_span_by_id(span_id)
 
-                spans.extend(spans_by_line_number)
-
-        for span in spans:
-            has_exact_query_match = (
-                exact_match_if_possible
-                and query
-                and span.initiating_block.has_content(query, span.span_id)
-            )
-
-            if has_exact_query_match:
-                spans_with_exact_query_match += 1
-
-            if has_exact_query_match and not require_exact_query_match:
-                require_exact_query_match = True
-                files_with_spans = {}
-
-            if (
-                not require_exact_query_match and span_count <= max_results
-            ) or has_exact_query_match:
-                if search_hit.file_path not in files_with_spans:
-                    files_with_spans[search_hit.file_path] = SearchCodeHit(
-                        file_path=search_hit.file_path
+                if span:
+                    file_spans.append(span)
+                else:
+                    logger.debug(
+                        f"map_spans_to_search_results() Could not find span with id {span_id} in file {file.file_path}"
                     )
 
-                if files_with_spans[search_hit.file_path].contains_span(span.span_id):
-                    continue
+                    spans_by_line_number = file.module.find_spans_by_line_numbers(
+                        search_hit.start_line, search_hit.end_line
+                    )
 
-                if names and not any(
-                    name in span.initiating_block.full_path() for name in names
-                ):
-                    filtered_out += 1
-                    continue
+                    file_spans.extend(spans_by_line_number)
 
-                span_count += 1
-                files_with_spans[search_hit.file_path].add_span(
-                    span_id=span.span_id, rank=search_hit.rank, tokens=span.tokens
+            for span in file_spans:
+                has_exact_query_match = (
+                    exact_match_if_possible
+                    and query
+                    and span.initiating_block.has_content(query, span.span_id)
                 )
 
+                if has_exact_query_match:
+                    spans_with_exact_query_match += 1
+
+                if has_exact_query_match and not require_exact_query_match:
+                    require_exact_query_match = True
+                    files_with_spans = {}  # Reset if we found an exact match
+                    span_count = 0
+
                 if (
-                    max_spans_per_file
-                    and len(files_with_spans[search_hit.file_path].spans)
-                    >= max_spans_per_file
-                ):
-                    break
+                    not require_exact_query_match and span_count < max_results
+                ) or has_exact_query_match:
+                    if search_hit.file_path not in files_with_spans:
+                        files_with_spans[search_hit.file_path] = SearchCodeHit(
+                            file_path=search_hit.file_path
+                        )
+
+                    if files_with_spans[search_hit.file_path].contains_span(
+                        span.span_id
+                    ):
+                        continue
+
+                    if names and not any(
+                        name in span.initiating_block.full_path() for name in names
+                    ):
+                        filtered_out += 1
+                        continue
+
+                    span_count += 1
+                    files_with_spans[search_hit.file_path].add_span(
+                        span_id=span.span_id, rank=rank, tokens=span.tokens
+                    )
+
+                    if (
+                        max_spans_per_file
+                        and len(files_with_spans[search_hit.file_path].spans)
+                        >= max_spans_per_file
+                    ):
+                        break
+
+            if span_count >= max_results:
+                break
 
         return (
-            files_with_spans,
+            list(files_with_spans.values()),
             span_count,
             spans_with_exact_query_match,
             filtered_out,
@@ -781,9 +877,9 @@ class CodeIndex:
 
         result = self._code_vector_store.query(query_bundle)
 
-        print("Result:")
-        for distance, node_id in sorted(zip(result.similarities, result.ids)):
-            print(distance, node_id.split("\\")[-1])
+        # print("Result:")
+        # for distance, node_id in sorted(zip(result.similarities, result.ids)):
+        #     print(distance, node_id.split("\\")[-1])
 
         filtered_out_snippets = 0
         ignored_removed_snippets = 0
