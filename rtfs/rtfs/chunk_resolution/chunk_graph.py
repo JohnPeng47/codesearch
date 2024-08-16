@@ -306,7 +306,9 @@ class ChunkGraph:
             # last child_id is the cluster of chunk_node
             if not self._graph.has_edge(chunk_node, child_id):
                 self.add_edge(
-                    chunk_node, child_id, ClusterEdge(kind=ClusterEdgeKind.ChunkToCluster)
+                    chunk_node,
+                    child_id,
+                    ClusterEdge(kind=ClusterEdgeKind.ChunkToCluster),
                 )
 
         self._cluster_depth = max_cluster_depth
@@ -470,7 +472,6 @@ class ChunkGraph:
             # ...
             if limit <= 0:
                 break
-
 
     ##### FOR testing prompt #####
     def get_chunk_imports(self):

@@ -1,0 +1,208 @@
+Load from disk
+[Query] ===>  How is the searchresult used in AgenticLoop?
+vector_search() Searching for query [How is the searchresult used in AgenticLoop?...] and file pattern [None].
+Query embedding: [0.009010984562337399, 0.020555011928081512, -0.031559210270643234]
+vector_search() Returning 20 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+semantic_search() Found 25 spans
+vector_search() Returning 2 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+Total chunk docs: 2
+semantic_search() Found 5 spans
+++++++ Code Results ++++++: 
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\find\search.py
+SearchCode._retry
+SearchCode
+SearchCode.system_prompt
+Search
+SearchCode.action_type
+imports
+SearchCode._execute_action
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\loop.py
+generate_call_id
+AgenticLoop.instructor_mode
+AgenticLoop.workspace
+AgenticLoop.transition_name
+AgenticLoop.total_cost
+AgenticLoop._next_mock_action
+AgenticLoop._log_prompt
+AgenticLoop.is_finished
+AgenticLoop._set_current_state
+AgenticLoop.state
+AgenticLoop._to_completion_messages
+AgenticLoop.trajectory
+AgenticLoop._create_state
+AgenticLoop._next_action
+AgenticLoop.log_info
+AgenticLoop.transition_to
+AgenticLoop.is_running
+AgenticLoop.state_count
+---------------------------------------------------------------------------------
+[Query] ===>  Show me all the places where repomap is used in the code
+vector_search() Searching for query [Show me all the places where repomap is used in th...] and file pattern [None].
+Query embedding: [-0.007019997574388981, 0.0583026297390461, 0.06208046153187752]
+vector_search() Returning 20 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+semantic_search() Found 25 spans
+vector_search() Returning 0 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+Total chunk docs: 0
+semantic_search() Found 0 spans
+++++++ Code Results ++++++: 
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\__init__.py
+imports
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\find\find_code_snippet.py
+find_code_snippet_in_files
+imports
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\swebench\utils.py
+found_in_expected_spans
+load_instance
+imports
+load_instances
+sorted_instances
+get_repo_dir_name
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\report_v2.py
+imports
+to_result
+generate_md_report_2
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\create_dataset.py
+imports
+read_predictions
+generate_report
+impl:5
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\utils\repo.py
+imports
+setup_github_repo
+get_repo_dir_name
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\find\__init__.py
+imports
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\repository\__init__.py
+imports
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\evaluation.py
+Evaluation._process_repo_group
+imports
+Evaluation._run_evaluation
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\report_v1.py
+generate_md_report
+---------------------------------------------------------------------------------
+[Query] ===>  Explain the different ways that code editing works in aider
+vector_search() Searching for query [Explain the different ways that code editing works...] and file pattern [None].
+Query embedding: [-0.0018258695490658283, 0.003672705963253975, 0.024447431787848473]
+vector_search() Returning 20 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+semantic_search() Found 25 spans
+vector_search() Returning 12 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+Total chunk docs: 12
+semantic_search() Found 25 spans
+++++++ Code Results ++++++: 
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\edit.py
+EditCode.finish
+EditCode.required_fields
+EditCode._add_prepared_response
+EditCode.init
+EditCode
+EditCode.messages
+EditCode._execute_action
+EditCode.action_type
+EditCode.system_prompt
+EditCode.stop_words
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\clarify.py
+ClarifyCodeChange
+ClarifyCodeChange.init
+ClarifyCodeChange._execute_action
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\prompt.py
+impl
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\plan_lines.py
+PlanToCodeWithLines
+PlanToCodeWithLines._execute_action
+PlanToCodeWithLines.action_type
+PlanToCodeWithLines.init
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\plan.py
+PlanToCode.init
+PlanToCode
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\review.py
+ReviewCode.init
+ReviewCode
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\__init__.py
+imports
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\tests\edit\test_edit.py
+TestEditCode.test_execute_action_retry
+TestEditCode.test_system_prompt
+---------------------------------------------------------------------------------
+[Query] ===>  How is the unified diff format used by aider?
+vector_search() Searching for query [How is the unified diff format used by aider?...] and file pattern [None].
+Query embedding: [-0.023453695699572563, -0.01975616253912449, 0.05030804127454758]
+vector_search() Returning 20 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+semantic_search() Found 25 spans
+vector_search() Returning 15 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+Total chunk docs: 15
+semantic_search() Found 25 spans
+++++++ Code Results ++++++: 
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\utils.py
+compare_patches
+get_diff_lines
+create_file_spans_from_patch
+get_file_spans_from_patch
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\repository\git.py
+GitRepository.commit_message
+GitRepository.diff
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\clarify.py
+ClarifyCodeChange
+ClarifyCodeChange.messages
+ClarifyCodeChange._execute_action
+ClarifyCodeChange.system_prompt
+ClarifyCodeChange.span
+ClarifyCodeChange.action_type
+ClarifyCodeChange.init
+ClarifyCodeChange._verify_line_numbers
+ClarifyCodeChange.required_fields
+ClarifyCodeChange.file
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\prompt.py
+impl
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\repository\file.py
+do_diff
+remove_duplicate_lines
+CodeFile.update_content
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\report_v2.py
+generate_md_report
+generate_md_report_2
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\benchmark\report_v1.py
+generate_md_report
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\edit\edit.py
+EditCode
+EditCode.init
+---------------------------------------------------------------------------------
+[Query] ===>  How does codeParser work?
+vector_search() Searching for query [How does codeParser work?...] and file pattern [None].
+Query embedding: [-0.04419552907347679, 0.01969895139336586, -0.008258957415819168]
+vector_search() Returning 20 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+semantic_search() Found 25 spans
+vector_search() Returning 0 search results. (Ignored 0 removed search results. Filtered out 0 search results.)
+Total chunk docs: 0
+semantic_search() Found 0 spans
+++++++ Code Results ++++++: 
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\codeblocks\parser\parser.py
+CodeParser.has_error
+CodeParser.find_in_tree
+CodeParser.language
+CodeParser.add_to_index
+CodeParser.is_commented_out_code
+CodeParser
+CodeParser.debug_log
+CodeParser.pre_process
+CodeParser.parse
+CodeParser.post_process
+CodeParser.get_content
+CodeParser.get_previous
+CodeParser.parse_code
+CodeParser._extract_node_type
+CodeParser._build_queries
+CodeParser._create_new_span
+CodeParser.__init__
+CodeParser._create_span_id
+CodeParser._count_tokens
+CodeParser.get_parent_next
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\codeblocks\parser\java.py
+JavaParser.__init__
+imports
+JavaParser
+[File]:  C:\Users\jpeng\Documents\projects\codesearch\tests\repos\moatless-tools\moatless\codeblocks\parser\python.py
+PythonParser
+PythonParser.pre_process
+---------------------------------------------------------------------------------
+Execution time: 6.16016411781311 seconds

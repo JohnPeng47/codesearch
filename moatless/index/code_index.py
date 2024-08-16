@@ -131,9 +131,13 @@ class CodeIndex:
         )
 
         docstore = SimpleDocumentStore.from_persist_dir(persist_dir)
-        cluster_doc_store = SimpleDocumentStore.from_persist_dir(
-            persist_dir
-        )  # Added this line
+        cluster_doc_store = SimpleDocumentStore.from_persist_path(
+            os.path.join(persist_dir, "cluster_doc_store.json")
+        )
+
+        if not cluster_doc_store:
+            raise ValueError("No cluster_doc_store found in persist_dir.")
+
         settings = IndexSettings.from_persist_dir(persist_dir)
 
         if os.path.exists(os.path.join(persist_dir, "blocks_by_class_name.json")):
@@ -244,17 +248,6 @@ class CodeIndex:
         max_results: int = 25,
     ) -> SearchCodeResponse:
 
-        if (
-            store_type == VectorStoreType.SUMMARY
-            or store_type == VectorStoreType.CLUSTER
-        ):
-            if not self._cluster_list and not self._cluster_vector_store:
-                raise ValueError(
-                    f"Cannot search for {store_type} without a cluster_list."
-                )
-
-            return self._plain_vector_search(query, store_type)
-
         if class_names or function_names:
             result = self.find_by_name(
                 class_names=class_names,
@@ -291,6 +284,7 @@ class CodeIndex:
                 function_names=function_names,
                 file_pattern=file_pattern,
                 max_results=max_results,
+                store_type=store_type,
             )
 
         return result
@@ -465,6 +459,7 @@ class CodeIndex:
         function_names: List[str] = None,
         file_pattern: Optional[str] = None,
         category: str = "implementation",
+        store_type: VectorStoreType = VectorStoreType.CODE,
         max_results: int = 25,
         max_hits_without_exact_match: int = 100,
         max_exact_results: int = 5,
@@ -500,12 +495,21 @@ class CodeIndex:
                 message += f"No files found for file pattern {file_pattern}. Will search all files.\n"
                 file_pattern = None
 
-        search_results = self._vector_search(
-            query, file_pattern=file_pattern, exact_content_match=code_snippet
-        )
+        if store_type == VectorStoreType.CLUSTER:
+            if not self._cluster_list and not self._cluster_vector_store:
+                raise ValueError(
+                    f"Cannot search for {store_type} without a cluster_list."
+                )
+
+            search_results = self._vector_search_cluster(query)
+
+        elif store_type == VectorStoreType.CODE:
+
+            search_results = self._vector_search_code(
+                query, file_pattern=file_pattern, exact_content_match=code_snippet
+            )
 
         names = (class_names or []) + (function_names or [])
-
         (
             spans,
             span_count,
@@ -790,13 +794,18 @@ class CodeIndex:
         )
 
     def _clusters_from_dict(self, cluster: Dict) -> List[ClusterNode]:
-        print("CLuster: ", cluster["title"])
+        # TODO: make use of hierarchal relationship?
+        # ANCHOR - add children to metadata here?
+        metadata = {}
+        metadata["chunks"] = [c["og_id"] for c in cluster["chunks"]]
+
         clusters = [
             ClusterNode(
-                id_=cluster["title"], text=cluster["title"] + "\n" + cluster["summary"]
+                id_=cluster["title"],
+                text=cluster["title"] + "\n" + cluster["summary"],
+                metadata=metadata,
             )
         ]
-
         for cluster in cluster["children"]:
             clusters.extend(self._clusters_from_dict(cluster))
 
@@ -834,11 +843,12 @@ class CodeIndex:
             result = self._summary_vector_store.query(query_bundle)
 
         return [
+            # incorrect should search cluster_store
             (self._docstore.get_document(node_id), dist)
             for node_id, dist in zip(result.ids, result.similarities)
         ]
 
-    def _vector_search(
+    def _vector_search_code(
         self,
         query: str = "",
         exact_query_match: bool = False,
@@ -846,6 +856,10 @@ class CodeIndex:
         file_pattern: Optional[str] = None,
         exact_content_match: Optional[str] = None,
     ) -> List[CodeSnippet]:
+        """
+        Vector search that returns the file paths of the search results
+        """
+
         if file_pattern:
             query += f" file:{file_pattern}"
 
@@ -960,6 +974,86 @@ class CodeIndex:
         )
 
         return search_results
+
+    def _vector_search_cluster(self, query: str = "") -> List[CodeSnippet]:
+        """
+        Vector search that returns the file paths of the search results
+        """
+        query_embedding = self._embed_model.get_query_embedding(query)
+        filters = MetadataFilters(filters=[], condition=FilterCondition.AND)
+        query_bundle = VectorStoreQuery(
+            query_str=query,
+            query_embedding=query_embedding,
+            similarity_top_k=20,  # TODO: Fix paging?
+            filters=filters,
+        )
+
+        result = self._cluster_vector_store.query(query_bundle)
+        filtered_out_snippets = 0
+        ignored_removed_snippets = 0
+        sum_tokens = 0
+
+        sum_tokens_per_file = {}
+        exclude_files = self._file_repo.find_files(
+            ["**/tests/**", "tests*", "*_test.py", "test_*.py"]
+        )
+
+        search_results = []
+        total_chunk_docs = 0
+
+        for cluster_id, distance in zip(result.ids, result.similarities):
+            cluster_doc = self._cluster_doc_store.get_document(
+                cluster_id, raise_error=False
+            )
+            if not cluster_doc:
+                print(f"Could not find cluster doc {cluster_id}.")
+                continue
+
+            for chunk_id in cluster_doc.metadata["chunks"]:
+                total_chunk_docs += 1
+                chunk_doc = self._docstore.get_document(chunk_id, raise_error=False)
+
+                if not chunk_doc:
+                    print("Failed to find: ", chunk_id)
+                    ignored_removed_snippets += 1
+                    # TODO: Retry to get top_k results
+                    continue
+
+                if exclude_files and chunk_doc.metadata["file_path"] in exclude_files:
+                    filtered_out_snippets += 1
+                    continue
+
+                if chunk_doc.metadata["file_path"] not in sum_tokens_per_file:
+                    sum_tokens_per_file[chunk_doc.metadata["file_path"]] = 0
+
+                sum_tokens += chunk_doc.metadata["tokens"]
+                sum_tokens_per_file[
+                    chunk_doc.metadata["file_path"]
+                ] += chunk_doc.metadata["tokens"]
+
+                code_snippet = CodeSnippet(
+                    id=chunk_doc.id_,
+                    file_path=chunk_doc.metadata["file_path"],
+                    distance=distance,
+                    content=chunk_doc.get_content(),
+                    tokens=chunk_doc.metadata["tokens"],
+                    span_ids=chunk_doc.metadata.get("span_ids", []),
+                    start_line=chunk_doc.metadata.get("start_line", None),
+                    end_line=chunk_doc.metadata.get("end_line", None),
+                )
+
+                search_results.append(code_snippet)
+
+            # TODO: Rerank by file pattern if no exact matches on file pattern
+
+            print(
+                f"vector_search() Returning {len(search_results)} search results. "
+                f"(Ignored {ignored_removed_snippets} removed search results. "
+                f"Filtered out {filtered_out_snippets} search results.)"
+            )
+            print("Total chunk docs:", total_chunk_docs)
+
+            return search_results
 
     def _create_embed_pipelines(self):
         pipelines = (
@@ -1128,6 +1222,10 @@ class CodeIndex:
         self._docstore.persist(
             os.path.join(persist_dir, docstore.types.DEFAULT_PERSIST_FNAME)
         )
+        self._cluster_doc_store.persist(
+            os.path.join(persist_dir, "cluster_doc_store.json")
+        )
+
         self._settings.persist(persist_dir)
 
         with open(os.path.join(persist_dir, "blocks_by_class_name.json"), "w") as f:

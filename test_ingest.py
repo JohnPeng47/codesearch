@@ -10,7 +10,7 @@ import os
 import json
 from models import OpenAIModel
 
-REPO_NAME = "moatless-oai"
+REPO_NAME = "moatless-tools"
 QUERY = """
 How is hybrid search combined with semantic search?
 """
@@ -96,17 +96,6 @@ def get_code_index(file_repo, persist_dir, cluster_json):
 
 
 def search_code(query: str, code_index: CodeIndex, workspace: Workspace) -> FileContext:
-    """
-    Search for code snippets in the code index based on the provided query.
-
-    Args:
-        query (str): The search query.
-        code_index (CodeIndex): The code index to search within.
-        workspace (Workspace): The workspace to create file contexts.
-
-    Returns:
-        FileContext: The context of files with spans that match the search query.
-    """
     code_results = code_index.search(query, store_type=VectorStoreType.CODE)
     file_context = workspace.create_file_context(files_with_spans=code_results.hits)
 
@@ -116,27 +105,31 @@ def search_code(query: str, code_index: CodeIndex, workspace: Workspace) -> File
             file_context.add_span_to_context(hit.file_path, span.span_id, tokens=25)
 
     code_contexts = ""
-    for f, v in file_context.get_contexts().items():
-        print(f, [span.span_id for span in v.spans])
+    # for f, v in file_context.get_contexts().items():
+    #     print(f, [span.span_id for span in v.spans])
 
-        # code_contexts += file_context.create_prompt(
-        #     show_span_ids=False,
-        #     show_line_numbers=False,
-        #     exclude_comments=True,
-        #     show_outcommented_code=False,
-        # )
+    # code_contexts += file_context.create_prompt(
+    #     show_span_ids=False,
+    #     show_line_numbers=False,
+    #     exclude_comments=True,
+    #     show_outcommented_code=False,
+    # )
 
-    return file_context
+    return file_context.get_contexts().items()
 
 
-def search_cluster(query: str, code_index: CodeIndex) -> list:
+def search_cluster(query: str, code_index: CodeIndex, workspace: Workspace):
     cluster_results = code_index.search(query, store_type=VectorStoreType.CLUSTER)
-    for res, dist in cluster_results:
-        print(res, dist)
-    print(
-        "---------------------------------------------------------------------------------"
-    )
-    return cluster_results
+    file_context = workspace.create_file_context(files_with_spans=cluster_results.hits)
+
+    for hit in cluster_results.hits:
+        for span in hit.spans:
+            file_context.add_span_to_context(hit.file_path, span.span_id, tokens=25)
+
+    # for f, v in file_context.get_contexts().items():
+    #     print(f, [span.span_id for span in v.spans])
+
+    return file_context.get_contexts().items()
 
 
 def main():
@@ -165,8 +158,24 @@ def main():
     for i, query in enumerate(queries):
         print("[Query] ===> ", query)
 
-        file_context = search_code(query, code_index, workspace)
-        # cluster_results = search_cluster(query, code_index)
+        code_results = search_code(query, code_index, workspace)
+        cluster_results = search_cluster(query, code_index, workspace)
+
+        span_set = []
+
+        print("++++++ Code Results ++++++: ")
+        for f, v in code_results:
+            print("[File]: ", f)
+            for span in [span.span_id for span in v.spans]:
+                span_set.append(span)
+                print(span)
+
+        # print("||||||| Cluster Results ||||||||: ")
+        # for f, v in cluster_results:
+        #     print("[File]: ", f)
+        #     for span in [span.span_id for span in v.spans]:
+        #         span_set.append(span)
+        #         print(span)
 
         # Uncomment and modify as needed
         # res = asyncio.run(answer(query, code_contexts))
@@ -178,6 +187,10 @@ def main():
 
         # with open(f"{i}", "w") as file:
         #     file.write(res)
+
+        print(
+            "---------------------------------------------------------------------------------"
+        )
 
     end_time = time.time()
     print(f"Execution time: {end_time - start_time} seconds")

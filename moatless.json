@@ -1,550 +1,648 @@
 [
   {
-    "title": "State Management and Evaluation Framework for Automated Code Systems",
+    "title": "AI-Evaluation and Code Change Management System",
     "keywords": [
-      "Evaluation",
-      "AgenticLoop",
-      "AgenticState",
-      "TransitionRules"
+      "evaluate_search_and_identify",
+      "evaluate_search_and_code",
+      "evaluate_coding",
+      "Evaluation"
     ],
-    "summary": "This feature encapsulates a comprehensive framework for managing state transitions, evaluating code instances, and generating detailed reports within an automated code evaluation and editing system. The framework leverages various classes such as `Evaluation`, `AgenticLoop`, and `AgenticState` to facilitate state transitions, process code trajectories, and manage evaluation lifecycles. Key functionalities include initializing parameters, handling context expansion, identifying and mapping code spans, and verifying code changes. The system supports detailed logging, retry mechanisms, version control integration, and generates results in markdown format.",
+    "summary": "The provided code facilitates an AI-assisted coding and evaluation system through a structured, state-based approach. It manages various stages of code evaluation such as searching, planning, editing, and decision-making via state transitions. Key functionalities include evaluating code changes, verifying search trajectories, managing context spans, and generating detailed reports. The system integrates utility functions for naming conventions, cost tracking, and token counting, ensuring comprehensive coverage and systematic handling of code modifications and evaluations. The overall workflow is managed through classes like `Evaluation`, `AgenticLoop`, and `Trajectory`, ensuring a flexible and robust framework for automated code assessment and context-aware code editing.",
     "chunks": [],
     "children": [
       {
-        "title": "Code Transition and Evaluation Management",
+        "title": "Code Transition Management System",
         "keywords": [
-          "TransitionRules",
-          "search_transitions",
-          "code_transitions",
-          "search_and_code_transitions"
+          "global_params",
+          "state_params",
+          "SearchCode",
+          "IdentifyCode"
         ],
-        "summary": "The provided code manages transitions and states for an automated system that evaluates and edits code. It initializes parameters and transitions across various states such as searching, identifying, planning, and editing code. The transitions between these states are governed by defined rules. Moreover, the code includes functionality for running and evaluating these states based on predefined criteria, and adjusts global and state-specific parameters to optimize performance. Classes and functions also handle detailed processes including the expansion of context, deciding relevance, and implementing code edits.",
+        "summary": "The provided code governs the transition management of an AI-assisted coding and evaluation system. It effectively streams various stages of code evaluation such as searching, identifying, planning, editing, and decision-making through clearly defined state transitions. The code utilizes a state machine approach with specific transition rules to guide the system from one state to another based on triggers and transition constraints. This infrastructure allows for flexible configurations using global and state-specific parameters, supporting complex workflows such as dynamic context expansion, search result ranking, and contextual code editing.",
         "chunks": [
           {
             "id": "benchmark/claude_evaluation.py#2.65",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py_json_search_and_code.search_and_code_transitio",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/claude_evaluation.py"
           },
           {
             "id": "benchmark/claude_evaluation.py#4.33",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py_search_and_identify_set_run_evaluation.transitions.search_and_code_transitio",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/claude_evaluation.py"
           },
           {
             "id": "benchmark/claude_evaluation.py#5.26",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py_evaluate_search_evaluate_search.evaluation_run_evaluation",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/claude_evaluation.py"
           },
           {
             "id": "benchmark/claude_evaluation.py#9.56",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py_evaluate_plan_evaluate_plan.for_instance_id_in_df_ind.print_df_loc_instance_id_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/claude_evaluation.py"
           },
           {
             "id": "edit/clarify.py#100.15",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py_ClarifyCodeChange_ClarifyCodeChange._file_context_str.PrivateAttr_None_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "edit/edit.py#109.28",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\edit.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\edit.py_EditCode_EditCode.init.self._code_to_replace._n_join_lines_to_replac",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/edit.py"
           },
           {
             "id": "edit/plan.py#116.61",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan.py_PlanToCode_PlanToCode.init.if_not_self__expanded_con.self._expanded_context.True",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan.py"
           },
           {
             "id": "edit/plan_lines.py#124.69",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan_lines.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan_lines.py_PlanToCodeWithLines_PlanToCodeWithLines.action_type.return.ApplyChange",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan_lines.py"
           },
           {
             "id": "find/decide.py#162.55",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\decide.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\decide.py_DecideRelevance_DecideRelevance._last_scratch_pad.if_previous_states_and_pr.else_.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/decide.py"
           },
           {
             "id": "find/identify.py#166.16",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\identify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\identify.py_IdentifyCode_IdentifyCode.model_dump.return.super_model_dump_kwar",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/identify.py"
           },
           {
             "id": "find/search.py#174.26",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\search.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\search.py_SearchCode_SearchCode.support_test_files.False",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/search.py"
           },
           {
             "id": "moatless/loop.py#220.45",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop.run_AgenticLoop.run.raise_RuntimeError_f_Loop",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/loop.py#223.40",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop._create_state_AgenticLoop._create_state.return.next_state",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/state.py#245.19",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\state.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\state.py_NoopState_Pending.__init__.super___init___data_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/state.py"
           },
           {
             "id": "moatless/transition_rules.py#254.61",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transition_rules.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transition_rules.py_logging_TransitionRule.validate_state_classes.return.data",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transition_rules.py"
           },
           {
             "id": "moatless/transition_rules.py#255.36",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transition_rules.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transition_rules.py_TransitionRules_TransitionRules.model_dump.return.data",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transition_rules.py"
           },
           {
             "id": "moatless/transitions.py#259.40",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_logging_logger.logging_getLogger___name_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           },
           {
             "id": "moatless/transitions.py#260.20",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_code_transitions_code_transitions.return.TransitionRules_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           },
           {
             "id": "moatless/transitions.py#261.19",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_code_transitions_use_line_numbers_code_transitions_use_line_numbers.return.TransitionRules_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           },
           {
             "id": "moatless/transitions.py#262.11",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_edit_code_transitions_edit_code_transitions.return.TransitionRules_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           },
           {
             "id": "moatless/transitions.py#263.42",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_search_transitions_search_transitions.return.TransitionRules_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           },
           {
             "id": "moatless/transitions.py#264.33",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_identify_directly_transition_identify_directly_transition.return.TransitionRules_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           },
           {
             "id": "moatless/transitions.py#265.28",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_search_and_code_transitions_search_and_code_transitions.return.TransitionRules_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           },
           {
             "id": "moatless/transitions.py#266.43",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transitions.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transitions.py_identify_and_code_transitions_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transitions.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Evaluation Framework for Search, Identification, and Coding",
+        "title": "Automated Evaluation System for Code and Search Operations",
         "keywords": [
           "evaluate_search_and_identify",
           "evaluate_search_and_code",
           "evaluate_coding",
           "Evaluation"
         ],
-        "summary": "This feature encapsulates a comprehensive framework for evaluating machine learning models through various specialized functions focused on search-and-identify, search-and-code, and coding. It leverages the `Evaluation` class, which hosts methods for running these evaluations and generating detailed reports. Each evaluation function initializes required parameters, creates unique names for the evaluations, and executes evaluations on specified datasets. The `_run_evaluation_simple` method within the `Evaluation` class handles the core loop of evaluating individual instances, logging results, and generating statistics. Other helper methods like `create_evaluation_name`, `read_trajectory`, and `get_actions` complement the evaluation process.",
+        "summary": "This collection of code defines an automated evaluation system used to assess various aspects of code and search operations within a repository. The main functions, `evaluate_search_and_identify`, `evaluate_search_and_code`, and `evaluate_coding`, initialize and run evaluations based on different transition rules and evaluation parameters. Each function makes use of the `Evaluation` class, which manages the setup, execution, and reporting of evaluations. The class includes methods for running evaluations, managing trajectories, and recording outcomes. Additionally, utility functions like `create_evaluation_name` help in setting up systematic evaluation naming conventions.",
         "chunks": [
           {
             "id": "benchmark/claude_evaluation.py#6.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py_evaluate_search_and_identify_evaluate_search_and_identify.evaluation_run_evaluation",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/claude_evaluation.py"
           },
           {
             "id": "benchmark/claude_evaluation.py#7.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py_evaluate_search_and_code_evaluate_search_and_code.evaluation_run_evaluation",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/claude_evaluation.py"
           },
           {
             "id": "benchmark/claude_evaluation.py#8.18",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\claude_evaluation.py_evaluate_coding_evaluate_coding.df.evaluation_run_evaluation",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/claude_evaluation.py"
           },
           {
             "id": "benchmark/evaluation.py#14.65",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\evaluation.py_Evaluation_Evaluation.__init__.if_os_path_exists_result_.else_.self.report._resolved_ids_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/evaluation.py"
           },
           {
             "id": "benchmark/evaluation.py#21.88",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\evaluation.py_Evaluation._run_evaluation_simple_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/evaluation.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Automated Problem Evaluation and Reporting Framework",
+        "title": "Automated Problem Evaluation and Reporting System",
         "keywords": [
           "Evaluation",
           "_evaluate_instance",
           "generate_md_report",
           "get_total_cost"
         ],
-        "summary": "This feature encompasses a comprehensive problem evaluation and reporting framework designed for processing instances, generating detailed markdown reports, and managing the evaluation lifecycle. The framework uses the `AgenticLoop` class to run problem-solving loops based on transition rules, workspaces, and metadata. It supports retry mechanisms, tracks execution costs, and integrates with external repositories for version control. The evaluation results, including diffs and errors, are meticulously documented in markdown format for review.",
+        "summary": "This feature includes a collection of classes and functions designed to evaluate problem instances, generate Markdown reports, and manage cost tracking within an automated benchmarking system. The primary class `Evaluation` handles the evaluation process by setting up the workspace, executing a loop of actions, and saving the results. Supporting functions such as `generate_md_report` create detailed Markdown reports of the evaluation process, while the `AgenticLoop` class manages the iterative steps and transitions in the evaluation loop. The `Trajectory` class stores the state and transitions of the evaluation, ensuring consistency and the ability to reload and retry evaluations. Additionally, utility functions like `trace_metadata` and `get_total_cost` assist in meta-information tracking and cost calculations.",
         "chunks": [
           {
             "id": "benchmark/evaluation.py#17.85",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\evaluation.py_Evaluation._evaluate_instance_Evaluation._evaluate_instance.return.loop_trajectory",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/evaluation.py"
           },
           {
             "id": "benchmark/report_v2.py#27.87",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\report_v2.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\report_v2.py_generate_md_report_generate_md_report.return.markdown",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/report_v2.py"
           },
           {
             "id": "benchmark/utils.py#43.23",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\utils.py_get_total_cost_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/utils.py"
           },
           {
             "id": "moatless/loop.py#219.112",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop_AgenticLoop.persist.self_trajectory_persist_t",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/trajectory.py#248.23",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\trajectory.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\trajectory.py_Trajectory_Trajectory.__init__.self._info._",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/trajectory.py"
           },
           {
             "id": "tests/integration_test.py#343.39",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\tests\\integration_test.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\tests\\integration_test.py_test_run_and_reload_django_16379_test_run_and_reload_django_16379.None_4",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/tests/integration_test.py"
           },
           {
             "id": "tests/integration_test.py#344.65",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\tests\\integration_test.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\tests\\integration_test.py_test_different_edit_models_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/tests/integration_test.py"
           },
           {
             "id": "tests/utils.py#364.12",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\tests\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\tests\\utils.py__",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/tests/utils.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Evaluation and Report Generation for Code Instances",
+        "title": "Detailed Instance Evaluation and Reporting",
         "keywords": [
           "Evaluation",
           "_process_instance",
           "_process_repo_group",
           "_run_evaluation"
         ],
-        "summary": "The code is responsible for the evaluation of code instances, processing their trajectories, and generating detailed reports. The `Evaluation` class contains methods to process individual instances and groups of repositories, evaluating their trajectories and producing results. It also handles generating markdown reports and logging any errors during the process. The `to_result` function converts an instance and its trajectory into a detailed result dictionary, capturing various aspects such as transitions, identified code spans, and status. Helper functions like `found_in_alternative_spans`, `sync_file_context_with_search_trajectory`, `get_missing_files`, and `get_missing_spans` assist in specific tasks like checking code spans and synchronizing context.",
+        "summary": "This feature involves the detailed evaluation of instances and groups of repositories within a given context. It mainly focuses on evaluating instances, processing their trajectories, and producing detailed reports including markdown files. Various private methods in the `Evaluation` class handle these operations, with the core logic encapsulated in `_process_instance`, `_process_repo_group`, and `_run_evaluation` methods. The `to_result` functions transform raw instance data and trajectories into structured results, while utility functions like `found_in_alternative_spans`, `get_missing_files`, and `get_missing_spans` handle the specifics of comparing expected and actual spans found during evaluations.",
         "chunks": [
           {
             "id": "benchmark/evaluation.py#18.21",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\evaluation.py_Evaluation._process_instance_Evaluation._process_instance.return.result_submission",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/evaluation.py"
           },
           {
             "id": "benchmark/evaluation.py#19.45",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\evaluation.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\evaluation.py_Evaluation._process_repo_group_Evaluation._run_evaluation.if_self_detailed_report_o.else_.self__run_evaluation_simp",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/evaluation.py"
           },
           {
             "id": "benchmark/report_v1.py#23.307",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\report_v1.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\report_v1.py_to_result_to_result.return.result_transitions",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/report_v1.py"
           },
           {
             "id": "benchmark/report_v2.py#26.229",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\report_v2.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\report_v2.py_to_result_to_result.return.result",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/report_v2.py"
           },
           {
             "id": "swebench/utils.py#31.24",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py_found_in_alternative_spans_sync_file_context_with_search_trajectory.for_transition_in_traject.for_action_in_transition_.if_action_action_get_.for_span_in_action_actio.workspace_file_context_ad",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/swebench/utils.py"
           },
           {
             "id": "benchmark/utils.py#41.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\utils.py_get_missing_files_get_missing_spans.return.misses",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/utils.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Trajectory Analysis and Span Identification in Workspace",
+        "title": "Trajectory Verification and Span Context Management",
         "keywords": [
           "verify_search_trajectory",
           "get_files_from_patch",
-          "file_spans_to_dict",
-          "file_context"
+          "file_spans_to_dict"
         ],
-        "summary": "This set of functions is designed to analyze a search trajectory within a workspace, focusing on the identification and mapping of code spans. The primary function, `verify_search_trajectory`, processes transitions and actions within the trajectory, updating a results dictionary with various indicators such as identified spans and context expansions. It utilizes context creation from the workspace to track and expand code spans iteratively. Supporting functions include `get_files_from_patch` for extracting file paths from patch diffs, and `file_spans_to_dict` for converting file spans into dictionary format for easier comparison and processing.",
+        "summary": "The provided code primarily focuses on verifying search trajectories and managing span contexts within a given workspace. The `verify_search_trajectory` function assesses a search trajectory against an instance, tracking iterations and identified spans while maintaining context through instances of file contexts. It employs several sub-functions to handle spans and context efficiently, expanding context to include additional related and imported spans as necessary. Complementary functions such as `get_files_from_patch` and `file_spans_to_dict` help in parsing file patches and converting lists of file spans to dictionaries, respectively, aiding the span management and verification processes.",
         "chunks": [
           {
             "id": "swebench/utils.py#32.109",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py_verify_search_trajectory_verify_search_trajectory.return.result",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/swebench/utils.py"
           },
           {
             "id": "benchmark/utils.py#40.17",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\utils.py_get_files_from_patch_file_spans_to_dict.return.span_dict",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/utils.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Codebase Issue Analysis and Automated Code Modification",
+        "title": "Code Change Management and Action Request Handling",
         "keywords": [
           "compare_patches",
           "create_file_spans_from_patch",
-          "LineNumberClarification",
-          "ClarifyCodeChange"
+          "logger",
+          "LineNumberClarification"
         ],
-        "summary": "This feature set focuses on the analysis of codebase issues and the automated clarification and application of code changes. It includes classes and functions for comparing patches, creating file spans from patches, and orchestrating various aspects of action requests related to code modifications. Key functionalities include identifying relevant code spans, generating prompts for code changes, handling file context, and managing various states and actions within the system.",
+        "summary": "This code segment implements functionality for comparing patch files, creating file spans from patches, and managing and applying code changes based on user input. The code integrates with a version control system to analyze and apply code changes, leveraging a detailed system of prompts for validating and clarifying those changes. Additional utilities include logging, validation, and structure definition through several classes and enums, especially for handling complex sequences of user requests and actions in an autonomous or semi-autonomous manner.",
         "chunks": [
           {
             "id": "benchmark/utils.py#38.36",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\utils.py_compare_patches_create_file_spans_from_patch.return.files_with_spans",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/utils.py"
           },
           {
             "id": "edit/clarify.py#99.29",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py_logging_LineNumberClarification.reject.Field_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "edit/clarify.py#101.28",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py_ClarifyCodeChange.init_ClarifyCodeChange.init.self._file_context_str.file_context_create_promp",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "edit/edit.py#108.84",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\edit.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\edit.py_logging_CodeChange.rejected.Field_description_W",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/edit.py"
           },
           {
             "id": "edit/plan.py#115.31",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan.py_ApplyChange_ApplyChange.model_config.ConfigDict_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan.py"
           },
           {
             "id": "edit/plan_lines.py#123.29",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan_lines.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan_lines.py_ApplyChange_ApplyChange.model_config.ConfigDict_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan_lines.py"
           },
           {
             "id": "edit/review.py#129.29",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_logging_IncludeSpan.function_name.Field_None_description_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "edit/review.py#130.35",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_ApplyChange_ApplyChange.model_config.ConfigDict_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "edit/review.py#131.25",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_ApplyChanges_ApplyChanges.model_config.ConfigDict_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "find/decide.py#161.20",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\decide.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\decide.py_Decision_Decision.search_suggestions.Field_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/decide.py"
           },
           {
             "id": "find/identify.py#165.63",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\identify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\identify.py_fnmatch_Identify.identified_spans.Field_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/identify.py"
           },
           {
             "id": "find/search.py#173.21",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\search.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\search.py_Search_Search.validate_search_requests.return.self",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/search.py"
           },
           {
             "id": "index/code_index.py#190.12",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex._found_class_CodeIndex._create_search_hit.return.file_hit",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "moatless/loop.py#227.37",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop.instructor_mode_AgenticLoop._next_mock_action.if_self_state_action_type.else_.raise_ValueError_f_Mocked",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/types.py#267.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\types.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\types.py_from_typing_import_Any_O_ActionRequest.action_name.return.self___class_____name__",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/types.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Change Clarification and Token Counting Utility",
+        "title": "Code Change Clarification and Token Counting",
         "keywords": [
           "ClarifyCodeChange",
           "_verify_line_numbers",
           "system_prompt",
           "messages"
         ],
-        "summary": "This code provides functionalities to verify and clarify code change requests along with determining the token count of specified content. It includes the `ClarifyCodeChange` class, which ensures the integrity of line numbers in change requests and checks if they align with specific criteria before proceeding. Additionally, the utility function `count_tokens` helps to count the tokens in provided content string using either the 'voyageai' or 'tiktoken' libraries, loading them dynamically if necessary. This module integrates logging for tracking actions and potential issues, and also prepares messages for further actions or retries.",
+        "summary": "This feature handles the process of verifying and clarifying code changes based on specified line numbers and token limits. The `ClarifyCodeChange` class uses utility functions to check if the provided line numbers adequately cover the intended span for modification. If the input lines exceed token limits or only cover signatures of code structures, the class requests further clarification. Additionally, the `count_tokens` function helps in determining the number of tokens in a given code block, supporting both 'voyage' and 'tiktoken' models, and ensuring necessary packages are imported.",
         "chunks": [
           {
             "id": "edit/clarify.py#104.66",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py_ClarifyCodeChange._verify_line_numbers_ClarifyCodeChange.messages.return.messages",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "utils/tokenizer.py#277.48",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\utils\\tokenizer.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\utils\\tokenizer.py_os_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/utils/tokenizer.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Editing and Review Workflow",
+        "title": "Change Request Processing and Review System",
         "keywords": [
-          "EditCode",
-          "PlanToCode",
-          "PlanToCodeWithLines",
-          "ReviewCode"
+          "_get_pre_start_line",
+          "_get_post_end_line_index",
+          "_execute_action",
+          "_request_for_change"
         ],
-        "summary": "This code encapsulates the workflow for code editing and reviewing actions within a system. The workflow includes identifying code spans, editing code based on specific instructions, requesting changes, verifying updates, logging relevant information, and handling retry logic. The key classes involved (EditCode, PlanToCode, ReviewCode, etc.) extend from a base state (AgenticState) and implement methods to manage state transitions, request changes, and handle various actions like applying changes, verifying, and finishing tasks.",
+        "summary": "This feature is responsible for processing and reviewing change requests within a codebase. It includes methods to identify, verify, and apply changes based on specified instructions, ensuring the integrity and correctness of the updates. The system also handles errors, retries, and transitions between different states, facilitating a smooth workflow from planning to execution and review.",
         "chunks": [
           {
             "id": "edit/clarify.py#106.30",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py__get_pre_start_line__get_pre_start_line.raise_ValueError_No_non_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "edit/clarify.py#107.29",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py__get_post_end_line_index_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "edit/edit.py#110.43",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\edit.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\edit.py_EditCode._execute_action_EditCode._execute_action.update_result.file_update_content_by_li",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/edit.py"
           },
           {
             "id": "edit/edit.py#111.100",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\edit.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\edit.py_EditCode._execute_action.if_update_result_diff_and_EditCode._execute_action.return.ActionResponse_retry_resp",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/edit.py"
           },
           {
             "id": "edit/plan.py#117.29",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan.py_PlanToCode._execute_action_PlanToCode.action_type.return.ApplyChange",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan.py"
           },
           {
             "id": "edit/plan.py#118.59",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan.py_PlanToCode._request_for_change_PlanToCode._request_for_change._If_span_is_for_a_class_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan.py"
           },
           {
             "id": "edit/plan.py#119.54",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan.py_PlanToCode._request_for_change.if_block_span__PlanToCode._request_for_change.return.ActionResponse_transition",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan.py"
           },
           {
             "id": "edit/plan_lines.py#125.90",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan_lines.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan_lines.py_PlanToCodeWithLines._request_for_change_PlanToCodeWithLines._request_for_change.return.ActionResponse_transition",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan_lines.py"
           },
           {
             "id": "edit/review.py#133.88",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_ReviewCode._execute_action_ReviewCode.action_type.return.ApplyChange",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "edit/review.py#134.84",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_ReviewCode._request_for_change_ReviewCode._request_for_change.if_block_span_.else_.tokens.0",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "edit/review.py#135.23",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_ReviewCode._request_for_change.if_tokens_self_max_toke_ReviewCode._request_for_change.return.ActionResponse_transition",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "find/identify.py#167.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\identify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\identify.py_IdentifyCode._execute_action_IdentifyCode.system_prompt.return.IDENTIFY_SYSTEM_PROMPT",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/identify.py"
           },
           {
             "id": "moatless/types.py#268.26",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\types.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\types.py_ActionResponse_ActionResponse.no_transition.return.cls_output_output_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/types.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Agentic Code Interaction and Verification",
+        "title": "Code Editing and Management Workflow",
         "keywords": [
           "EditCode",
           "PlanToCode",
           "PlanToCodeWithLines",
           "ReviewCode"
         ],
-        "summary": "This codebase contains various classes and methods focused on facilitating and handling interactions between a coding agent and its workspace. The key components include classes representing different states of the agent (`AgenticState` and its subclasses such as `EditCode`, `PlanToCode`, `PlanToCodeWithLines`, `ReviewCode`, and `SearchCode`), and methods designed to manipulate messages and actions. Additionally, there are auxiliary classes and methods for managing the trajectory of agent states (`Trajectory`), logging and cost calculations (`Usage`, `ActionTransaction`), and verifying code correctness (`Verifier` implementations like `PylintVerifier` and `MavenVerifier`). These components collectively support an adaptive and interactive coding environment.",
+        "summary": "The provided code encompasses a comprehensive workflow for managing and editing code using a structured state-based approach. It includes classes and methods for various actions such as editing code, planning code changes, reviewing, and searching the code. Each class defines a sequence of messages and actions that guide the code modification or evaluation process. Additionally, the workflow integrates mechanisms for handling retries, logging, and cost calculations related to API usage for code completions. The logic of the workflow is encapsulated within state classes that manage the intermediate states and transitions, enabling a smooth and controlled process for modifying or assessing the codebase.",
         "chunks": [
           {
             "id": "edit/edit.py#113.51",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\edit.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\edit.py_EditCode.messages_EditCode.stop_words.return._replace_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/edit.py"
           },
           {
             "id": "edit/plan.py#121.41",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan.py_PlanToCode.messages_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan.py"
           },
           {
             "id": "edit/plan_lines.py#127.37",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\plan_lines.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\plan_lines.py_PlanToCodeWithLines.messages_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/plan_lines.py"
           },
           {
             "id": "edit/review.py#137.40",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_ReviewCode.messages_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "find/search.py#177.74",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\search.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\search.py_SearchCode.messages_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/search.py"
           },
           {
             "id": "moatless/loop.py#225.125",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop._next_action_AgenticLoop._next_action.return.action_request_usage",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/state.py#244.79",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\state.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\state.py_AgenticState.retries_AgenticState.__eq__.return.True",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/state.py"
           },
           {
             "id": "moatless/trajectory.py#249.72",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\trajectory.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\trajectory.py_Trajectory.load_Trajectory.load.return.trajectory",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/trajectory.py"
           },
           {
             "id": "moatless/types.py#269.68",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\types.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\types.py_Usage_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/types.py"
           },
           {
             "id": "verify/lint.py#279.47",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\verify\\lint.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\verify\\lint.py_logging_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/verify/lint.py"
           },
           {
             "id": "verify/maven.py#281.16",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\verify\\maven.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\verify\\maven.py_MavenVerifier.parse_compilation_errors_MavenVerifier.parse_compilation_errors.return.errors",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/verify/maven.py"
           },
           {
             "id": "verify/maven.py#282.28",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\verify\\maven.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\verify\\maven.py_MavenVerifier.find_file_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/verify/maven.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Agentic State Workflow and Transition Management",
+        "title": "State Management and Transition Handling",
         "keywords": [
           "ReviewCode",
-          "AgenticLoop",
-          "AgenticState",
-          "init"
+          "message",
+          "diff",
+          "max_prompt_file_tokens"
         ],
-        "summary": "This code handles the execution and transitions of various states within an Agentic system. The `ReviewCode` class provides a specific state dealing with code review and verification, featuring attributes such as `max_prompt_file_tokens` and `finish_on_no_errors`. The `AgenticLoop` class manages the execution cycle of states, ensuring transitions based on actions, costs, and retries. It also manages updating the trajectory and handles total costs, retries, and state completions. The `AgenticState` class serves as the abstract base class for all states, defining core attributes and methods for action handling and execution. The `TransitionRules` and `Trajectory` classes provide mechanisms to manage state transitions and save state trajectories, respectively.",
+        "summary": "This segment of code handles the management of different states and transitions within an agentic workflow. The `ReviewCode` class defines a specific state for reviewing code, with various parameters and methods to verify tasks and handle changes. The `AgenticLoop` class contains methods for executing states, handling transitions, and managing costs and retries. It also includes properties to manage the state lifecycle, including checking if the agent is running, if it has finished, and transitioning between states. The `AgenticState` abstract class provides a template for defining states with specific attributes and methods for handling actions. Additional classes such as `TrajectoryState`, `Trajectory`, and `TransitionRules` define how states are logged, saved, and validated through the use of transition rules and a trajectory to track states.",
         "chunks": [
           {
             "id": "edit/review.py#132.57",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\review.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\review.py_ReviewCode_ReviewCode.init.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/review.py"
           },
           {
             "id": "moatless/loop.py#221.38",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop._execute_state_until_transition_AgenticLoop._execute_state_until_transition.raise_RuntimeError_Loop_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/loop.py#222.53",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop._execute_state_AgenticLoop._execute_state.return.self_transition_to_next_s",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/loop.py#224.22",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop.total_cost_AgenticLoop.transition_to.return.new_state",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/loop.py#226.105",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\loop.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\loop.py_AgenticLoop.state_count_AgenticLoop._to_completion_messages.return.messages",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/loop.py"
           },
           {
             "id": "moatless/state.py#242.107",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\state.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\state.py_AgenticState_AgenticState.required_fields.return.set_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/state.py"
           },
           {
             "id": "moatless/trajectory.py#247.47",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\trajectory.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\trajectory.py_json_TrajectoryState.model_dump.return.data",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/trajectory.py"
           },
           {
             "id": "moatless/trajectory.py#252.35",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\trajectory.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\trajectory.py_Trajectory.save_state_Trajectory.get_expected_states.return._transition_state_name_fo",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/trajectory.py"
           },
           {
             "id": "moatless/transition_rules.py#257.16",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transition_rules.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transition_rules.py_TransitionRules._build_source_trigger_index_TransitionRules.params.return.params",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transition_rules.py"
           },
           {
             "id": "moatless/transition_rules.py#258.25",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transition_rules.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transition_rules.py_TransitionRules.get_next_rule_TransitionRules.get_next_rule.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transition_rules.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Agentic State Management and Transition Validation",
+        "title": "Dynamic State Management and Transition Validation",
         "keywords": [
           "get_state_class",
-          "builtin_states",
+          "built_in_states",
           "possible_modules",
           "TransitionRules"
         ],
-        "summary": "The provided chunks of code are designed to handle the dynamic retrieval and validation of agentic states within a system. The function `get_state_class` dynamically loads classes representing different states, either from a predefined set of built-in states or by importing classes from specified modules. The `TransitionRules` class uses a before-initialization model validator to ensure that state names and parameters are correctly instantiated as their appropriate classes. This ensures that the transition mechanism handles both predefined and dynamically imported states robustly.",
+        "summary": "This feature is responsible for managing and dynamically loading agent state classes as well as validating transition rules before their initialization. The `get_state_class` function attempts to find and return a state class by name, first checking built-in states and then attempting dynamic imports from specified modules. If these attempts fail, a final check is done against currently loaded modules in `sys.modules`. The `TransitionRules` class, validated through a custom `validate_before_init` model validator, ensures that transition data is correctly initialized and converted to appropriate state classes. Additionally, global parameters are checked and defaults are applied when necessary.",
         "chunks": [
           {
             "id": "moatless/state.py#246.34",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\state.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\state.py_get_state_class_get_state_class.raise_ValueError_f_State_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/state.py"
           },
           {
             "id": "moatless/transition_rules.py#256.20",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\transition_rules.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\transition_rules.py_TransitionRules.validate_before_init_TransitionRules.validate_before_init.return.data",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/transition_rules.py"
           }
         ],
         "children": []
@@ -552,190 +650,215 @@
     ]
   },
   {
-    "title": "Comprehensive Code Experiment Evaluation and Codebase Management Framework",
+    "title": "Comprehensive Code Repository Evaluation and Reporting System",
     "keywords": [
-      "aggregate_results",
-      "parse_results",
-      "evaluate_predictions",
-      "generate_report"
+      "generate_report",
+      "get_file_spans_from_patch",
+      "generate_md_report",
+      "FileContext"
     ],
-    "summary": "This feature set is designed to evaluate results from code experiments, generate comprehensive reports, and manage software workspaces with Git integration. It aggregates experimental outcomes, parses results, and evaluates predictions against benchmarks, documenting resolved and unresolved tasks in structured datasets and JSON reports. Additionally, it constructs detailed markdown reports depicting the lifecycle of code changes. The framework includes utilities for setting up and managing workspaces, embedding, and indexing large codebases using vector stores for efficient similarity search. By splitting code into manageable chunks and embedding these chunks, the system facilitates scalable code analysis and efficient Git repository handling, supporting robust version control and automated development workflows.",
+    "summary": "The provided code snippets collectively form a feature designed to generate comprehensive evaluation reports for experimental runs, manage workspaces and code indexing systems, and handle Git operations. The core functionality includes aggregating and analyzing predictions against a gold standard, generating detailed Markdown reports summarizing coding trajectories, setting up and managing workspaces, utilizing Faiss for code embedding search, and handling code ingestion and chunking processes. Key classes and functions manage various aspects of workspace setup, file context management, embedding models, and Git operations, ensuring a streamlined and organized approach to evaluating and reporting on code repositories.",
     "chunks": [],
     "children": [
       {
-        "title": "Automated Evaluation and Report Generation for Experiment Results",
+        "title": "Evaluation Report Generation and Prediction Analysis",
         "keywords": [
           "generate_report",
           "experiments_dir",
-          "runs",
-          "results"
+          "experiments_runs",
+          "runs"
         ],
-        "summary": "This feature is responsible for evaluating code experiment results and generating detailed reports that compare predictions from various runs against a benchmark dataset. It first aggregates experimental results from multiple directories, parses these results to extract resolved tasks and predictions, and then evaluates these predictions against an expected benchmark. The evaluation process involves setting up repositories, extracting spans from patches, comparing predictions to known outcomes, and documenting both resolved and unresolved tasks. The final results are compiled into a structured dataset and summary report, which is saved as a JSON file and returned as a DataFrame for further analysis.",
+        "summary": "The provided code snippets are centered around generating a comprehensive evaluation report for various experimental runs, gathering predictions and analyzing their correctness compared to expected results. The `generate_report` function aggregates results from different experiment runs, processes prediction files, and derives span information to evaluate the accuracy of predictions against a gold standard. Furthermore, the function maintains a detailed dataset of evaluation instances and finally generates a report summarizing the resolution status of each test instance. The `get_file_spans_from_patch` function is utilized to extract span information from the patches, which is critical for evaluating predicted patches against expected results.",
         "chunks": [
           {
             "id": "benchmark/create_dataset.py#12.117",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\create_dataset.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\create_dataset.py_generate_report_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/create_dataset.py"
           },
           {
             "id": "benchmark/utils.py#39.19",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\utils.py_get_file_spans_from_patch_get_file_spans_from_patch.return.expected_files_with_spans",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/utils.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Generate Markdown Report for Code Trajectory",
+        "title": "Markdown Report Generation for Coding Trajectories",
         "keywords": [
           "generate_md_report",
-          "trajectory",
-          "instance",
-          "setup_swebench_repo"
+          "FileContext",
+          "FileRepository",
+          "CodeIndex"
         ],
-        "summary": "This feature generates a detailed markdown report based on a given code trajectory and instance. The report includes various sections such as the problem statement, prediction, golden patch, trajectory steps, and alternative patches. The trajectory steps detail the flow of actions from planning to clarifying, editing, and finishing or rejecting code changes. Each step includes context for actions performed, like file paths, span IDs, and LLM responses. The generated markdown highlights both the actions taken and the results, providing a comprehensive summary of the code's lifecycle from issue to resolution.",
+        "summary": "This feature consists of a set of functions and classes to generate detailed Markdown reports from a given coding trajectory and instance data. The main function, `generate_md_report`, synthesizes information such as problem statements, errors, predictions, file contexts, and various states and actions of the coding process into a well-structured Markdown document. Supporting classes like `FileContext`, `FileRepository`, `CodeIndex`, and `Workspace` assist in managing file contexts, repositories, and indexes, ensuring that all the required data for the report is properly organized and accessible.",
         "chunks": [
           {
             "id": "benchmark/report_v1.py#24.96",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\report_v1.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\report_v1.py_generate_md_report_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/report_v1.py"
           },
           {
             "id": "benchmark/report_v2.py#28.96",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\report_v2.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\report_v2.py_generate_md_report_2_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/report_v2.py"
           },
           {
             "id": "swebench/utils.py#33.76",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py_generate_md_report_generate_md_report.return.markdown",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/swebench/utils.py"
           },
           {
             "id": "moatless/file_context.py#151.38",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\file_context.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\file_context.py_FileContext_FileContext.from_dict.return.instance",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/file_context.py"
           },
           {
             "id": "index/code_index.py#182.23",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.from_url_CodeIndex.from_url.return.cls_from_persist_dir_pers",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "index/code_index.py#183.25",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.from_index_name_CodeIndex.dict.return._index_name_self__inde",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "repository/file.py#234.24",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\repository\\file.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\repository\\file.py_FileRepository_FileRepository.path.return.self__repo_path",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/repository/file.py"
           },
           {
             "id": "moatless/workspace.py#287.33",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\workspace.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\workspace.py_Workspace.from_dict_Workspace.from_dict.return.cls_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/workspace.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Workspace Initialization and Management for SWE-Bench Instances",
+        "title": "Workspace and Index Management",
         "keywords": [
           "create_workspace",
           "CodeIndex",
-          "Workspace",
-          "get_embed_model"
+          "get_embed_model",
+          "Workspace"
         ],
-        "summary": "This feature encompasses functions and classes aimed at creating and managing workspaces for SWE-bench instances. The `create_workspace` function initializes a workspace by setting up necessary directories and repositories. It utilizes a `GitRepository` to clone the required repository and sets up a `CodeIndex` for the instance. The `CodeIndex` class is responsible for managing indexes of code files, facilitating searches and storing embeddings. The `Workspace` class encapsulates both repository and code index management, including configuring the workspace with predefined settings and a verification job. The `get_embed_model` function aids in fetching the appropriate embedding model for code indexing, with support for both Voyage and OpenAI embedding models.",
+        "summary": "This feature encompasses the creation and management of workspaces and indexes for SWE-bench instances. The `create_workspace` function sets up a workspace by cloning the corresponding Git repository, initializing a `CodeIndex`, and configuring the environment. The `CodeIndex` class handles the indexing of code, using various settings and embedding models for vector storage and document management. The `Workspace` class integrates the repository and the index, enabling code verification through tools like Pylint or Maven. Additional functionality includes loading embedding models, such as those from Voyage or OpenAI, depending on environment configurations.",
         "chunks": [
           {
             "id": "swebench/utils.py#35.34",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py_create_workspace_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/swebench/utils.py"
           },
           {
             "id": "index/code_index.py#180.34",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex_CodeIndex.__init__.logger_info_f_Initiated_C",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "index/embed_model.py#199.35",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\embed_model.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\embed_model.py_os_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/embed_model.py"
           },
           {
             "id": "moatless/workspace.py#285.46",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\workspace.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\workspace.py_Workspace_Workspace.__init__.if_file_context_.else_.self._file_context.self_create_file_context_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/workspace.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Faiss-Based Vector Store and Index Management",
+        "title": "Code Embedding and Vector Store Management",
         "keywords": [
-          "default_vector_store",
           "CodeIndex",
           "SimpleFaissVectorStore",
+          "default_vector_store",
           "faiss_index"
         ],
-        "summary": "This feature provides the implementation and utilities for creating, managing, and querying a vector store using the Faiss library for efficient similarity search. It encompasses the setup of a default vector store, the loading of persisted settings and indices, and a class for interfacing with the vector store using a simple in-memory dictionary to manage embeddings and their associated document identifiers. The `CodeIndex` class initializes various components from a persistent directory to facilitate code indexing and retrieval processes.",
+        "summary": "The provided code is responsible for setting up and interacting with a code indexing system that uses Faiss for efficient similarity search of code embeddings. It involves initializing a Faiss-based vector store, configuring persistence through directories, and managing document storage. It contains utility functions for embedding code snippets, defines classes for handling code indices, and sets up error handling for missing dependencies. Key classes include `CodeIndex` for managing the entire index including vector stores and document stores, and `SimpleFaissVectorStore` for interfacing with Faiss to store and query embeddings efficiently.",
         "chunks": [
           {
             "id": "index/code_index.py#179.50",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_fnmatch_default_vector_store.return.SimpleFaissVectorStore_fa",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "index/code_index.py#181.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.from_persist_dir_CodeIndex.from_persist_dir.return.cls_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "index/simple_faiss.py#210.55",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\simple_faiss.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\simple_faiss.py_SimpleFaissVectorStore_SimpleFaissVectorStore.client.return.self__faiss_index",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/simple_faiss.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Indexing and Chunking System",
+        "title": "Code Ingestion and Chunking System",
         "keywords": [
           "CodeIndex",
           "run_ingestion",
           "EpicSplitter",
           "NodeParser"
         ],
-        "summary": "This feature is designed to efficiently process and index large codebases by splitting them into manageable chunks and embedding these chunks for further analysis. The `CodeIndex` class orchestrates the ingestion process, utilizing the `EpicSplitter` class to break down code documents into smaller nodes based on specified strategies and settings. These settings, encapsulated in the `IndexSettings` class, include parameters such as chunk sizes, token limits, and comment handling strategies. The prepared nodes are then embedded using an embedding pipeline, allowing for scalable and efficient code analysis.",
+        "summary": "This feature encompasses a system designed for ingesting code repositories, splitting code into manageable chunks, and embedding these chunks for further processing. The `CodeIndex` class manages the overall ingestion process, including initializing an `EpicSplitter` instance to handle the tokenization and chunking of code blocks according to specified settings. The `EpicSplitter` class, an implementation of a `NodeParser`, takes care of parsing different types of code and non-code documents, applying a comment strategy, and adhering to token and chunk size limits. Additionally, various settings and configuration options are managed by the `IndexSettings` class, which defines parameters such as chunk sizes, comment strategies, and embedding models.",
         "chunks": [
           {
             "id": "index/code_index.py#195.38",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.run_ingestion.splitter_CodeIndex.run_ingestion.return.len_embedded_nodes_embe",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "index/epic_split.py#201.93",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_EpicSplitter_EpicSplitter.class_name.return._GhostcoderNodeParser_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
           },
           {
             "id": "index/epic_split.py#204.94",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_EpicSplitter._chunk_block_EpicSplitter._chunk_block.return.self__merge_chunks_chunks",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
           },
           {
             "id": "index/settings.py#208.52",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\settings.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\settings.py_json_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/settings.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Git Repository Management and Interaction",
+        "title": "Git Repository Management",
         "keywords": [
           "GitRepository",
           "from_repo",
           "from_dict",
           "restore_from_snapshot"
         ],
-        "summary": "This set of code defines a robust system for managing and interacting with Git repositories within a software project. It includes a class `GitRepository` that extends file handling capabilities by integrating Git version control, allowing for operations like cloning, committing, and checking out specific commits. Functions for common Git operations such as cloning, committing changes, checking out branches and commits, and pushing branches are also provided. Additionally, a `Workspace` class is introduced for initializing repositories either from a Git URL or a local path. This code facilitates automated and efficient handling of repositories, supporting development workflows that rely on version control.",
+        "summary": "This code defines a class GitRepository that extends FileRepository to manage operations related to Git repositories, including cloning, committing, and restoring from snapshots. It includes methods for initialization from a repo URL or a dictionary, saving files, taking snapshots, and restoring state. Additionally, it defines various utility functions for git operations like maybe_clone, commit_changes, checkout_branch, push_branch, get_diff, and stage_all_files. The Workspace class is also defined to facilitate creating instances from directories with optional Git integration.",
         "chunks": [
           {
             "id": "repository/git.py#238.98",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\repository\\git.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\repository\\git.py_logging_GitRepository.commit.logger_info_f_Committed_c",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/repository/git.py"
           },
           {
             "id": "utils/repo.py#273.15",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\utils\\repo.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\utils\\repo.py_maybe_clone_maybe_clone.if_not_os_path_exists_f_.if_result_returncode_0.else_.raise_ValueError_f_Failed",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/utils/repo.py"
           },
           {
             "id": "utils/repo.py#276.83",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\utils\\repo.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\utils\\repo.py_commit_changes_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/utils/repo.py"
           },
           {
             "id": "moatless/workspace.py#286.22",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\workspace.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\workspace.py_Workspace.from_dirs_Workspace.from_dirs.return.cls_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/workspace.py"
           }
         ],
         "children": []
@@ -743,304 +866,351 @@
     ]
   },
   {
-    "title": "Setup and Clone SWE Benchmark Repository",
+    "title": "Repository Setup and Initialization",
     "keywords": [
       "setup_swebench_repo",
+      "logger",
       "setup_github_repo",
-      "get_repo_dir_name",
-      "instance_data"
+      "get_repo_dir_name"
     ],
-    "summary": "The provided code defines functions that facilitate the setup and cloning of a software engineering benchmark repository from GitHub. The `setup_swebench_repo` function initializes the necessary repository parameters based on instance data or instance IDs and sets a base directory where the repository should be cloned. It utilizes environment variables to determine the base directory if not explicitly provided. The `setup_github_repo` function handles the actual cloning process, creates the necessary directories, and checks out a specific commit. Supporting functions such as `get_repo_dir_name` help format repository names appropriately for local storage.",
+    "summary": "This set of functions is responsible for setting up and initializing a software benchmark repository on a local system. It primarily involves downloading a specified GitHub repository, checking out a particular commit, and preparing the repository for further use. The code ensures that either instance data or an instance ID is provided to acquire necessary repository information and handles the creation or verification of the directory structure for the repository. It also includes logging steps to trace the repository setup process.",
     "chunks": [
       {
         "id": "swebench/utils.py#34.20",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\swebench\\utils.py_setup_swebench_repo_setup_swebench_repo.return.setup_github_repo_",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/swebench/utils.py"
       },
       {
         "id": "utils/repo.py#272.23",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\utils\\repo.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\utils\\repo.py_logging_get_repo_dir_name.return.repo_replace___",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/utils/repo.py"
       }
     ],
     "children": []
   },
   {
-    "title": "Comprehensive Code Block Management and Parsing System",
+    "title": "Comprehensive Code Management and Parsing Framework",
     "keywords": [
-      "EpicSplitter",
-      "PathTree",
-      "Relationship",
-      "CodeParser"
+      "CodeParser",
+      "Module",
+      "PythonParser",
+      "JavaParser"
     ],
-    "summary": "This feature set offers a robust system for managing code blocks across both Java and Python programming languages. It spans functionalities for parsing, indexing, structuring, and validating code segments. Core tasks include identifying and managing spans, inserting, replacing, and removing code blocks, and organizing them into hierarchical structures. The code utilizes specialized parsers leveraging the tree-sitter library, tailored for Java and Python, and integrates these parsers into larger processes like indexing and verification workflows. Additional classes and methods handle logging, debugging, categorizing code types, and managing relationships between code entities, ensuring smooth manipulation and maintenance of codebases.",
+    "summary": "This comprehensive framework is designed to manage, parse, and analyze code files within a repository. Central to this implementation is the `CodeParser` class, which provides methods for parsing code, managing relationships between code blocks, and handling errors. The framework includes language-specific parsers such as `PythonParser` and `JavaParser`, which extend the base class to incorporate language-specific features and pre-processing tasks. Classes like `Module`, `ContextFile`, and `CodeFile` add layers of functionality for handling different types of code blocks, validating updates, and maintaining contexts. Utility functions and specialized classes, such as `EpicSplitter` and `MavenVerifier`, help with organizing code, optimizing block size, and verifying code using build tools like Maven. The framework also focuses on the hierarchal organization of code, managing relationships through enums like `ReferenceScope` and `RelationshipType`, and offering robust validation mechanisms for ensuring the integrity and coherence of code changes and file contents.",
     "chunks": [],
     "children": [
       {
-        "title": "Code Block and Span Management",
+        "title": "Code Block Analysis and Processing",
         "keywords": [
           "Module",
           "FileRepository",
           "FileWithSpans",
           "find_relevant_spans"
         ],
-        "summary": "This feature provides a comprehensive management system for code blocks, spanning from parsing and indexing to validation and relationship mapping. It encompasses utilities to identify relevant spans, facilitate code block operations such as insertion, replacement, and removal, and effectively parse and structure code content into hierarchical modules. The feature is crucial for understanding and manipulating the architecture and content of code bases for tasks like benchmarking, context identification, and content ingestion.",
+        "summary": "The code provided is designed for analyzing, processing, and managing code blocks and spans within a repository. It primarily consists of classes and functions that enable the parsing of code, identification of relevant spans, and manipulating code blocks within a given context. The `CodeParser` class is central to this implementation, providing methods to parse code, manage code block relationships, handle errors, and perform both pre-processing and post-processing tasks. The `Module` class extends the `CodeBlock` class to include specific attributes and methods for managing modules. Additionally, various utility functions and classes help in organizing spans, handling identifiers, and maintaining a code index.",
         "chunks": [
           {
             "id": "benchmark/utils.py#36.45",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\benchmark\\utils.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\benchmark\\utils.py_logging_find_relevant_spans.return.relevant_spans",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/benchmark/utils.py"
           },
           {
             "id": "codeblocks/codeblocks.py#53.99",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_CodeBlock_CodeBlock.remove_child.del_self_children_index_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
           },
           {
             "id": "codeblocks/module.py#73.42",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\module.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\module.py_logging_Module.sum_tokens.return.tokens",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/module.py"
           },
           {
             "id": "parser/parser.py#83.106",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.parse_code.if_parent_block__CodeParser.parse_code.next_node.node_match_first_child",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#84.92",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.parse_code.self_debug_log__CodeParser.parse_code.return.code_block_next_node_cu",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#91.37",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.add_to_index_CodeParser.has_error.return.False",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#92.26",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.parse_CodeParser.get_content.return.content_bytes_node_start_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "moatless/file_context.py#141.18",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\file_context.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\file_context.py_ContextFile._find_span_ContextFile._within_span.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/file_context.py"
           },
           {
             "id": "index/code_index.py#194.13",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.run_ingestion.index_callback_CodeIndex.run_ingestion.index_callback.None_1.blocks_by_function_name_c",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
           },
           {
             "id": "index/epic_split.py#203.33",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_EpicSplitter._chunk_contents_EpicSplitter._chunk_contents.return.self__chunk_block_codeblo",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Parsing and Splitting System",
+        "title": "Code Parsers and Language Support",
         "keywords": [
           "CodeBlock",
           "CodeBlockType",
-          "create_parser",
-          "JavaParser"
+          "CodeParser",
+          "PythonParser"
         ],
-        "summary": "These chunks of code collectively form a system for parsing and splitting code files into manageable blocks, tailored specifically for both Java and Python programming languages. The core functionality revolves around determining if the provided code file is supported, obtaining an appropriate parser based on file extension or language, and applying various preprocessing and splitting techniques. The code involves different parser classes for Java and Python, leveraging the tree-sitter library for parsing. Additional utility methods help in seamlessly integrating these parsers into larger indexing and verification workflows. Specialized classes such as `EpicSplitter` utilize these parsers to break down code files into smaller chunks for easier processing.",
+        "summary": "This code provides an implementation to parse and process code from different programming languages, specifically Python and Java. It includes classes and functions for identifying and creating appropriate parsers based on file extensions or languages, with specific functionality tailored for Python and Java files. The `CodeParser` class forms the generic foundation for parsing, while `PythonParser` and `JavaParser` extend this class to include language-specific query building and preprocessing tasks. Additionally, utility functions determine if code blocks are supported, and specialized parsers split and handle nodes for further processing.",
         "chunks": [
           {
             "id": "codeblocks/__init__.py#44.18",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\__init__.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\__init__.py_from_moatless_codeblocks__",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/__init__.py"
           },
           {
             "id": "parser/create.py#77.25",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\create.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\create.py_from_moatless_codeblocks__",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/create.py"
           },
           {
             "id": "parser/java.py#78.12",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\java.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\java.py__",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/java.py"
           },
           {
             "id": "parser/parser.py#80.49",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser_CodeParser._extract_node_type.if_match_.else_.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/python.py#96.60",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\python.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\python.py_logging_PythonParser.pre_process.None_1.codeblock_content_lines_0",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/python.py"
           },
           {
             "id": "index/epic_split.py#202.56",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_EpicSplitter._parse_nodes_EpicSplitter._parse_nodes.return.all_nodes",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
           },
           {
             "id": "moatless/workspace.py#284.14",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\workspace.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\workspace.py_logging_logger.logging_getLogger___name_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/workspace.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Structure and Span Management for Code Updates and Validation",
+        "title": "Code Block Management and Validation",
         "keywords": [
-          "CodeBlockTypeGroup",
-          "CodeParser",
-          "SpanMarker",
-          "ClarifyCodeChange"
+          "re",
+          "Enum",
+          "Optional",
+          "BaseModel"
         ],
-        "summary": "This collection of code handles the parsing, structuring, and validation of code blocks within files. It primarily concerns itself with identifying spans of code, updating code content, logging relevant information for debugging and providing a structured representation for code blocks. By defining various types of code block groups and implementing methods to manage these blocks, the code ensures smooth integration of new content while maintaining structural and syntactical integrity.",
+        "summary": "This collection of classes and functions provides a robust framework for managing, parsing, and validating code blocks within a larger codebase. It defines various types of code blocks and provides methods to generate unique identifiers for them, count tokens, and debug logs. The `CodeParser` class handles the creation of span IDs and token counting. The `ClarifyCodeChange` class finds spans of code that need to be changed, ensuring proper handling and validation of code structures. The `ContextFile` class generates prompts for code blocks, including handling commented-out code and managing spans. Finally, the `CodeFile` class validates updated content, checking for errors or placeholders, and updating the file's content if valid.",
         "chunks": [
           {
             "id": "codeblocks/codeblocks.py#45.28",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_re_CodeBlockTypeGroup.ERROR._Error_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
           },
           {
             "id": "parser/parser.py#95.32",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser._create_span_id_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "edit/clarify.py#105.66",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py_ClarifyCodeChange.get_line_span_ClarifyCodeChange.get_line_span.return.start_line_end_line",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "moatless/file_context.py#143.103",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\file_context.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\file_context.py_ContextFile._to_prompt_ContextFile._to_prompt.return.contents",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/file_context.py"
           },
           {
             "id": "repository/file.py#233.85",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\repository\\file.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\repository\\file.py_CodeFile.update_content_CodeFile.update_content.return.UpdateResult_file_path_se",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/repository/file.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Block Parsing and Span Management",
+        "title": "Code Block Metadata and Parsing System",
         "keywords": [
           "CodeBlockType",
           "Parameter",
           "SpanType",
           "BlockSpan"
         ],
-        "summary": "This feature encompasses the functionality to define and manage various types of code blocks and their spans. It includes the parsing of code blocks, identifying their types, and handling relationships and parameters within those blocks. The feature also involves managing the spans, including creating new spans based on various conditions such as block types and sizes. Additional functionalities include processing and identifying commented-out code and handling logging and debugging of matches within the code tree.",
+        "summary": "This collection of code classes and functions primarily deals with the classification, parsing, and management of code blocks in a hierarchical structure. It introduces various types of code blocks, such as modules, classes, functions, and more. The system is built to organize, parse, classify, and validate code blocks, handling errors, assignments, comments, and other elements distinctly. Additionally, it includes mechanisms to tokenize, categorize, and manage the spans of these code blocks for efficient parsing and context management.",
         "chunks": [
           {
             "id": "codeblocks/codeblocks.py#46.41",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_CodeBlockType_CodeBlockType.__init__.self.group.group",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
           },
           {
             "id": "codeblocks/codeblocks.py#52.59",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_Parameter_ValidationError.error",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
           },
           {
             "id": "parser/parser.py#79.67",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_logging_find_nested_type.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#82.38",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.parse_code_CodeParser.parse_code.parameters.self_create_parameters_co",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#85.25",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.is_commented_out_code_CodeParser.find_in_tree.if_match_.else_.return.NodeMatch_block_type_Code",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#88.80",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser._find_match_CodeParser._find_match.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#90.19",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.create_parameters_CodeParser.create_parameters.return.parameters",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#93.83",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser._create_new_span_CodeParser._create_new_span._if_current_span_is_from",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/parser.py#94.45",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser._create_new_span.if_len_current_span_paren_CodeParser._create_new_span.return.None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           },
           {
             "id": "parser/python.py#97.73",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\python.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\python.py_PythonParser.post_process_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/python.py"
           },
           {
             "id": "moatless/file_context.py#149.21",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\file_context.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\file_context.py_ContextFile.expand_context_with_init_spans_ContextFile.expand_context_with_init_spans.for_span_id_in_self_span_.if_span_and_span_initiati.for_child_in_span_initiat.if_.self_add_span_child_belon",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/file_context.py"
           },
           {
             "id": "index/epic_split.py#200.38",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_re_SPLIT_BLOCK_TYPES._",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
           },
           {
             "id": "index/epic_split.py#206.58",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_EpicSplitter._to_context_string_EpicSplitter._to_context_string.return.contents",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Block Management and Tree Structuring",
+        "title": "Code Block Management and Tree Structure Utilities",
         "keywords": [
           "NON_CODE_BLOCKS",
           "INDEXED_BLOCKS",
           "PathTree",
-          "from_block_paths"
+          "EpicSplitter"
         ],
-        "summary": "The given code is responsible for managing and organizing code blocks into hierarchical structures for better visibility and manipulation. This includes categorizing different types of code blocks, building a tree structure to represent nested paths of code blocks, and merging smaller chunks of code blocks to meet specific size limits. The `PathTree` class is used to construct and merge trees representing these paths, while the `EpicSplitter` class combines smaller chunks of code blocks into larger ones based on token count constraints.",
+        "summary": "This feature provides utilities for managing and organizing code blocks within a project. It includes definitions for various types of code blocks, as well as a `PathTree` class for representing a hierarchical structure of these blocks. The `EpicSplitter` class offers functionality for merging and optimizing chunks of code blocks based on size constraints. Additionally, it includes methods for creating path trees from code blocks and filtering out comments based on specific patterns.",
         "chunks": [
           {
             "id": "codeblocks/codeblocks.py#48.45",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_NON_CODE_BLOCKS_PathTree.extend_tree.for_path_in_paths_.self_add_to_tree_path_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
           },
           {
             "id": "index/epic_split.py#205.76",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_EpicSplitter._merge_chunks_EpicSplitter._ignore_comment.return._",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Relationship and Reference Parsing",
+        "title": "Code Reference and Relationship Parsing",
         "keywords": [
           "ReferenceScope",
           "RelationshipType",
-          "scope",
-          "identifier"
+          "Relationship",
+          "CodeParser"
         ],
-        "summary": "This collection of code chunks defines the handling and creation of references and relationships between different code entities. It encompasses the categorization of references into various scopes like external, dependency, file, and project, and relationships such as utilizes, uses, defined_by, and imports. The `Relationship` class includes mechanisms for validating paths, equality checks, and generating descriptive strings of relationships. The `CodeParser` class contains the `create_references` method, which is responsible for identifying and constructing reference objects from parsed code blocks, handling different relationship types like imports, calls, provides, and utilizes.",
+        "summary": "This code defines classes and functions for parsing and managing code references and their relationships within a codebase. The `ReferenceScope` and `RelationshipType` enums categorize the different scopes and types of relationships that can exist between code blocks. The `Relationship` class models these relationships, ensuring the integrity of paths and providing utility methods like `full_path` and string representations. The `CodeParser` class contains methods for creating these relationship references from parsed code snippets, focusing on different block types such as imports, functions, and classes.",
         "chunks": [
           {
             "id": "codeblocks/codeblocks.py#50.19",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_ReferenceScope_RelationshipType.TYPE._type_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
           },
           {
             "id": "codeblocks/codeblocks.py#51.45",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_Relationship_Relationship.__str__.return.f_start_node_self_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
           },
           {
             "id": "parser/parser.py#89.84",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\parser\\parser.py_CodeParser.create_references_CodeParser.create_references.return.references",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/parser/parser.py"
           }
         ],
         "children": []
       },
       {
-        "title": "Code Management and Verification System",
+        "title": "Code Management and Verification Framework",
         "keywords": [
           "ClarifyCodeChange",
-          "ContextFile",
-          "CodeFile",
-          "MavenVerifier"
+          "required_fields",
+          "action_type",
+          "file"
         ],
-        "summary": "This feature encompasses a suite of classes and methods aimed at managing code files, their contexts, and ensuring code verification. The `ClarifyCodeChange` class extends an agentic state to focus on code changes, requiring specific fields and linking to a line number clarification action. The `ContextFile` and `CodeFile` classes represent individual code files and their contexts, including metadata and parsing mechanisms. Meanwhile, the `MavenVerifier` class handles the verification of code using Maven, including running tests and parsing errors. Lastly, the `Workspace` class manages the storage and restoration of file states, creating file contexts, and handling verification processes for individual code files.",
+        "summary": "This code provides a comprehensive framework for managing and verifying code files within a repository. It includes classes for representing code changes, context files, and verification mechanisms using Maven. The `ClarifyCodeChange` class ensures specified fields and access to file and span properties. The `ContextFile` class encapsulates a code file with context spans and handles serialization. The `CodeFile` class manages code file content, parsing, and instantiation from file or content. The `MavenVerifier` class verifies code files using Maven with an option to run tests and log results. Finally, the `Workspace` class manages code repositories, snapshots, and file contexts, providing methods for restoration, serialization, and verification.",
         "chunks": [
           {
             "id": "edit/clarify.py#103.15",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\edit\\clarify.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\edit\\clarify.py_ClarifyCodeChange.required_fields_ClarifyCodeChange.span.return.self__span",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/edit/clarify.py"
           },
           {
             "id": "moatless/file_context.py#139.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\file_context.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\file_context.py_ContextFile_ContextFile.span_ids.return._span_span_id_for_span_in",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/file_context.py"
           },
           {
             "id": "repository/file.py#231.27",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\repository\\file.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\repository\\file.py_CodeFile_CodeFile.supports_codeblocks.return.self_module_is_not_None",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/repository/file.py"
           },
           {
             "id": "verify/maven.py#280.57",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\verify\\maven.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\verify\\maven.py_logging_MavenVerifier.verify.try_.except_subprocess_CalledP.logger_warning_e_stderr_",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/verify/maven.py"
           },
           {
             "id": "moatless/workspace.py#288.46",
-            "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\workspace.py"
+            "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\workspace.py_Workspace.restore_from_snapshot_Workspace.verify.return._",
+            "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/workspace.py"
           }
         ],
         "children": []
@@ -1048,22 +1218,24 @@
     ]
   },
   {
-    "title": "Code Block to Tree Transformation",
+    "title": "Tree Representation of Code Blocks",
     "keywords": [
       "CodeBlock",
       "to_tree",
       "Colors",
       "indent"
     ],
-    "summary": "This feature consists of a primary class `CodeBlock` that provides a method `to_tree` to recursively convert code blocks into a tree structure with various display options. The `to_tree` method supports numerous parameters for customization, including indentation, highlighting, showing tokens, line numbers, and merge history. Another class, `Colors`, provides ANSI color codes for coloring the output, making it easier to visually differentiate parts of the code blocks based on the provided options.",
+    "summary": "The provided code is focused on generating a hierarchical tree representation of code blocks using various display and filtering options. The `CodeBlock` class, which inherits from `BaseModel`, contains a `to_tree` method that recursively constructs a formatted string representation of the code block and its children. The formatting is highly configurable, allowing control over indentation, highlighting, visibility, and the inclusion of additional information such as line numbers and references. The `Colors` class is used to add color-coded output to the tree based on different conditions, enhancing the readability and debugging experience.",
     "chunks": [
       {
         "id": "codeblocks/codeblocks.py#58.109",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\codeblocks\\codeblocks.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\codeblocks\\codeblocks.py_CodeBlock.to_tree_CodeBlock.to_tree.return.f_indent_str_indent_",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/codeblocks/codeblocks.py"
       },
       {
         "id": "utils/colors.py#270.10",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\utils\\colors.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\utils\\colors.py__",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/utils/colors.py"
       }
     ],
     "children": []
@@ -1076,140 +1248,157 @@
       "CurrentPromptSpan",
       "SearchCode"
     ],
-    "summary": "This feature comprises multiple classes and methods for implementing a code search and ranking system. It includes models for representing ranked file spans, context spans, and current prompt spans. The SearchCode class inherits from the AgenticState and defines the core logic for executing the search action. It processes search requests, interacts with a code index to retrieve search results, and ultimately ranks the found code spans based on specific criteria. Additionally, the feature includes logging to inform about the number of search hits and handles cases where no relevant results are found, enabling retries.",
+    "summary": "This feature is responsible for searching through a codebase to find relevant code snippets based on specified query parameters and ranking the identified spans. It utilizes various data classes and models to handle the search results and manage spans within files. The core functionality is encapsulated in the `SearchCode` class which carries out the search based on requests and ranks the results before returning an appropriate response. Logging is also integrated to track the process and outcomes of the searches.",
     "chunks": [
       {
         "id": "moatless/file_context.py#138.39",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\file_context.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\file_context.py_json_CurrentPromptSpan.tokens.0",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/file_context.py"
       },
       {
         "id": "find/search.py#175.54",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\search.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\search.py_SearchCode._execute_action_SearchCode._execute_action.return.ActionResponse_transition",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/search.py"
       }
     ],
     "children": []
   },
   {
-    "title": "Code Update and Management Feature",
+    "title": "Context File Content Update Handler",
     "keywords": [
       "ContextFile",
       "update_content_by_line_numbers",
       "UpdateResult",
-      "update_result"
+      "logger"
     ],
-    "summary": "This feature involves the management and updating of content within files, particularly focusing on modifying file content by specific line numbers. The `ContextFile` class, derived from `BaseModel`, contains a method `update_content_by_line_numbers` that updates a section of a file's content and logs any new spans added during the update process. Auxiliary utilities and imports support this functionality, such as logging, diffing tools, and type definitions, encapsulated by the `UpdateResult` dataclass which records the outcome of an update operation, including file path, updated status, differences made, and any errors encountered.",
+    "summary": "This code defines a feature for handling updates to the content of files through the `ContextFile` class. It leverages the Pydantic `BaseModel` for the main data structure and utilizes a dataclass `UpdateResult` to encapsulate the result of update operations. The `ContextFile` class includes functionality to update file content based on line numbers and logs any new spans added during the update process. Additionally, it imports various libraries for file handling, logging, and code parsing to support its operations.",
     "chunks": [
       {
         "id": "moatless/file_context.py#148.13",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\file_context.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\file_context.py_ContextFile.update_content_by_line_numbers_ContextFile.update_content_by_line_numbers.return.update_result",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/file_context.py"
       },
       {
         "id": "repository/file.py#230.23",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\repository\\file.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\repository\\file.py_difflib_UpdateResult.new_span_ids.None",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/repository/file.py"
       }
     ],
     "children": []
   },
   {
-    "title": "Intelligent Search Action Handling",
+    "title": "Search Functionality and Retry Mechanism in AgenticState",
     "keywords": [
       "SearchCode",
       "_retry",
       "action_type",
       "system_prompt"
     ],
-    "summary": "This collection of code defines the `SearchCode` class, which is responsible for handling search actions within the codebase. This is achieved through mechanisms for retrying failed actions with a cap on retries, determining the type of action to be performed, and generating tailored system prompts based on the model in use. Additionally, the `instructor_mode_by_model` function provides a utility to classify the operational mode of the instructor based on the given model string.",
+    "summary": "This feature comprises code that handles the search functionality and retry mechanism within an agentic state framework. The `SearchCode` class inherits from `AgenticState` and defines methods for retry logic, action types, and system prompts. The `_retry` method is designed to manage retries and transition any state based on context and retry limits. The `system_prompt` method constructs a dynamic system prompt string based on the model and other conditions. Additionally, the `instructor_mode_by_model` function provides an instructor mode mapping based on the given model string, aiding in instructional and prompt customization.",
     "chunks": [
       {
         "id": "find/search.py#176.28",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\find\\search.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\find\\search.py_SearchCode._retry_SearchCode.system_prompt.return.system_prompt",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/find/search.py"
       },
       {
         "id": "utils/llm_utils.py#271.17",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\utils\\llm_utils.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\utils\\llm_utils.py__",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/utils/llm_utils.py"
       }
     ],
     "children": []
   },
   {
-    "title": "Comprehensive Code Search Functionality",
+    "title": "Code Search Functionality",
     "keywords": [
       "CodeIndex",
       "search",
       "semantic_search",
       "find_by_name"
     ],
-    "summary": "This collection of code chunks implements a robust code searching feature within the CodeIndex class. It includes functionality for both syntactic and semantic search capabilities. The core methods, `search`, `semantic_search`, and `find_by_name`, allow users to search for code snippets, classes, and functions using various parameters such as file patterns, class names, function names, and more. The search results are filtered and ranked based on relevance and exact matches, and the outcomes are encapsulated in the SearchCodeResponse and SearchCodeHit classes for well-structured results presentation.",
+    "summary": "This feature encompasses the searching and indexing functionality within a codebase. It includes methods for searching code based on various parameters like class names, function names, code snippets, and file patterns. The `CodeIndex` class provides methods such as `search`, `semantic_search`, and `find_by_name` to retrieve relevant pieces of code from the repository. Additionally, it handles the filtering, ranking, and returning of search results wrapped in response models `SearchCodeHit` and `SearchCodeResponse`. These methods utilize both exact and semantic search techniques, ensuring a comprehensive search capability.",
     "chunks": [
       {
         "id": "index/code_index.py#184.47",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.search_CodeIndex.search.return.result",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
       },
       {
         "id": "index/code_index.py#185.52",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.semantic_search_CodeIndex.semantic_search.require_exact_query_match.False",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
       },
       {
         "id": "index/code_index.py#186.92",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.semantic_search.for_rank_search_hit_in_e_CodeIndex.semantic_search.if_class_names_or_functio.logger_info_",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
       },
       {
         "id": "index/code_index.py#187.11",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.semantic_search.if_require_exact_query_ma_CodeIndex.semantic_search.return.SearchCodeResponse_messag",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
       },
       {
         "id": "index/code_index.py#188.113",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.find_by_name_CodeIndex.find_by_name.for_file_path_block_path.if_include_functions_in_c.for_child_in_block_childr.if_.files_with_spans_file_pat",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
       },
       {
         "id": "index/code_index.py#189.37",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex.find_by_name.if_filtered_out_by_class__CodeIndex.find_by_name.return.SearchCodeResponse_",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
       },
       {
         "id": "index/types.py#217.34",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\types.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\types.py_SearchCodeHit_",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/types.py"
       }
     ],
     "children": []
   },
   {
-    "title": "Vector-Based Code Snippet Search and Management",
+    "title": "Vector-based Code Snippet Search and Representation",
     "keywords": [
       "CodeIndex",
       "_vector_search",
       "CodeSnippet",
       "SpanHit"
     ],
-    "summary": "This feature provides the functionality to search for code snippets based on vector embeddings and various filtering criteria. The `_vector_search` method within the `CodeIndex` class is the core component, allowing users to perform searches using different parameters such as query strings, file patterns, and exact content matches. The search results are filtered based on categories, file inclusion/exclusion patterns, and query/content matches, and the relevant snippets are returned encapsulated in `CodeSnippet` objects. Additionally, `SpanHit` and `CodeSnippet` classes provide data structures to manage and store the metadata of the code snippets and their relevance scores.",
+    "summary": "The provided code concerns a feature that performs vector-based searches on a codebase to find relevant code snippets. The central class, `CodeIndex`, offers a `_vector_search` method that constructs and executes a search query based on input parameters like query string, file pattern, and content match. It employs an embedding model to transform the query into a vector and filters results based on metadata such as file path and category. Additional functionality includes filtering out irrelevant snippets and collecting comprehensive metadata about the search results. The results are encapsulated in `CodeSnippet` data structures, holding information like file path, content, token count, and lines of code. Auxiliary classes like `SpanHit` provide detailed information about specific segments within the matched code files.",
     "chunks": [
       {
         "id": "index/code_index.py#191.117",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_index.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_index.py_CodeIndex._vector_search_CodeIndex._vector_search.return.search_results",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_index.py"
       },
       {
         "id": "index/types.py#216.27",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\types.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\types.py_from_dataclasses_import_d_SpanHit.tokens.Field_default_0_descript",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/types.py"
       }
     ],
     "children": []
   },
   {
-    "title": "Code Parsing and Node Creation for Text Analysis",
+    "title": "CodeNode Hashing and EpicSplitter Parsing",
     "keywords": [
       "CodeNode",
       "EpicSplitter",
       "hash",
       "_contains_block_paths"
     ],
-    "summary": "This set of code is primarily responsible for handling the parsing and creation of nodes from code blocks for text analysis and embedding purposes. It consists of custom node parsing classes and methods that process chunks of code, generate metadata, and calculate hashes to ensure data integrity and facilitate text embedding. The `CodeNode` class extends the `TextNode` class, adding a property that calculates the SHA-256 hash of the node content and metadata. The `EpicSplitter` class includes methods for checking block paths within codeblocks, creating nodes with detailed metadata, and counting tokens in text content, aiding in efficient text analysis and storage.",
+    "summary": "This feature consists of classes and functions that facilitate the parsing and processing of code nodes, with a focus on hashing and tokenizing metadata for code chunks. The `CodeNode` class extends `TextNode` to create a unique hash that omits specific metadata fields to reduce unnecessary changes. The `EpicSplitter` class contains methods for block path checking, node creation with detailed metadata, and counting tokens in a text, all of which contribute to an efficient parsing process that considers code span relationships and token counts.",
     "chunks": [
       {
         "id": "index/code_node.py#198.14",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\code_node.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\code_node.py_from_hashlib_import_sha25_",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/code_node.py"
       },
       {
         "id": "index/epic_split.py#207.54",
-        "file_path": "C:\\Users\\jpeng\\Documents\\projects\\test_rtfs\\tests\\moatless-tools\\moatless\\index\\epic_split.py"
+        "og_id": "C:\\Users\\jpeng\\Documents\\projects\\codesearch\\tests\\repos\\moatless-tools\\moatless\\index\\epic_split.py_EpicSplitter._contains_block_paths_",
+        "file_path": "C:/Users/jpeng/Documents/projects/codesearch/tests/repos/moatless-tools/moatless/index/epic_split.py"
       }
     ],
     "children": []
