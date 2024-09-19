@@ -3,22 +3,25 @@ from typing import Type, Optional, List
 
 from pydantic import Field, ConfigDict
 
-from moatless.codeblocks import CodeBlockType
-from moatless.edit.clarify import _get_post_end_line_index, _get_pre_start_line
-from moatless.edit.prompt import (
+from codesearch.moatless.codeblocks import CodeBlockType
+from codesearch.moatless.edit.clarify import (
+    _get_post_end_line_index,
+    _get_pre_start_line,
+)
+from codesearch.moatless.edit.prompt import (
     CODER_SYSTEM_PROMPT,
     SELECT_SPAN_SYSTEM_PROMPT,
     CODER_FINAL_SYSTEM_PROMPT,
 )
-from moatless.state import AgenticState
-from moatless.types import (
+from codesearch.moatless.state import AgenticState
+from codesearch.moatless.types import (
     ActionRequest,
     ActionResponse,
     Message,
     UserMessage,
     AssistantMessage,
 )
-from moatless.verify.lint import VerificationError
+from codesearch.moatless.verify.lint import VerificationError
 
 logger = logging.getLogger("PlanToCode")
 

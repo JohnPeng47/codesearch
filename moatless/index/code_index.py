@@ -24,23 +24,26 @@ from llama_index.core.vector_stores.types import (
 )
 from rapidfuzz import fuzz
 
-from moatless.repository import CodeFile
-from moatless.codeblocks import CodeBlock, CodeBlockType
-from moatless.index.embed_model import get_embed_model
-from moatless.index.epic_split import EpicSplitter
-from moatless.index.settings import IndexSettings
-from moatless.index.simple_faiss import SimpleFaissVectorStore, VectorStoreType
-from moatless.index.types import (
+from codesearch.moatless.repository import CodeFile
+from codesearch.moatless.codeblocks import CodeBlock, CodeBlockType
+from codesearch.moatless.index.embed_model import get_embed_model
+from codesearch.moatless.index.epic_split import EpicSplitter
+from codesearch.moatless.index.settings import IndexSettings
+from codesearch.moatless.index.simple_faiss import (
+    SimpleFaissVectorStore,
+    VectorStoreType,
+)
+from codesearch.moatless.index.types import (
     CodeSnippet,
     SearchCodeResponse,
     SearchCodeHit,
 )
-from moatless.repository import FileRepository
-from moatless.types import FileWithSpans
-from moatless.utils.tokenizer import count_tokens
-from moatless.summary import SummaryNode, generate_summary
+from codesearch.moatless.repository import FileRepository
+from codesearch.moatless.types import FileWithSpans
+from codesearch.moatless.utils.tokenizer import count_tokens
+from codesearch.moatless.summary import SummaryNode, generate_summary
 
-from moatless.index.cluster_node import ClusterNode
+from codesearch.moatless.index.cluster_node import ClusterNode
 
 logger = logging.getLogger(__name__)
 

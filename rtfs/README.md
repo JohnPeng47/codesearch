@@ -1,5 +1,5 @@
 # How it works
-1. Chunk code using custom code chunker (stolen from Moatless)
+1. Chunk code using custom code chunker (stolen from codesearch.moatless)
 2. Generate dep graph (partly stolen from Bloop)
 3. Cluster chunks together using multi-level graph clustering algo (basically identifies local communities that are more related amongst each other than they are with outside nodes)
 4. Recursively generate summaries from leaf to root

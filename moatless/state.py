@@ -3,9 +3,9 @@ from typing import Optional, List, Type, Any
 
 from pydantic import BaseModel, Field, PrivateAttr
 
-from moatless import Workspace, FileRepository
-from moatless.file_context import FileContext
-from moatless.types import (
+from codesearch.moatless import Workspace, FileRepository
+from codesearch.moatless.file_context import FileContext
+from codesearch.moatless.types import (
     ActionRequest,
     ActionResponse,
     FileWithSpans,

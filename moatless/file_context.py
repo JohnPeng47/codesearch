@@ -4,16 +4,16 @@ from typing import Optional, Set, Dict, List
 
 from pydantic import BaseModel
 
-from moatless.codeblocks import CodeBlockType
-from moatless.codeblocks.codeblocks import (
+from codesearch.moatless.codeblocks import CodeBlockType
+from codesearch.moatless.codeblocks.codeblocks import (
     BlockSpan,
     CodeBlock,
     SpanMarker,
     CodeBlockTypeGroup,
     SpanType,
 )
-from moatless.repository import CodeFile, FileRepository, UpdateResult
-from moatless.types import FileWithSpans
+from codesearch.moatless.repository import CodeFile, FileRepository, UpdateResult
+from codesearch.moatless.types import FileWithSpans
 
 logger = logging.getLogger(__name__)
 

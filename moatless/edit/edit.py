@@ -3,8 +3,8 @@ from typing import Optional, Type
 
 from pydantic import PrivateAttr, Field, BaseModel
 
-from moatless.state import AgenticState, Finished
-from moatless.types import (
+from codesearch.moatless.state import AgenticState, Finished
+from codesearch.moatless.types import (
     Message,
     ActionRequest,
     ActionResponse,
@@ -12,7 +12,7 @@ from moatless.types import (
     AssistantMessage,
     UserMessage,
 )
-from moatless.verify.types import VerificationError
+from codesearch.moatless.verify.types import VerificationError
 
 logger = logging.getLogger(__name__)
 

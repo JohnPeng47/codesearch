@@ -1,7 +1,7 @@
 import tree_sitter_java as java
 from tree_sitter import Language
 
-from moatless.codeblocks.parser.parser import CodeParser
+from codesearch.moatless.codeblocks.parser.parser import CodeParser
 
 
 class JavaParser(CodeParser):

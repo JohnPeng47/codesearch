@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from moatless.repository import CodeFile
-from moatless.types import VerificationError
+from codesearch.moatless.repository import CodeFile
+from codesearch.moatless.types import VerificationError
 
 
 class Verifier(ABC):

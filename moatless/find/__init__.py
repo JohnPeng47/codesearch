@@ -1,3 +1,3 @@
-from moatless.find.decide import DecideRelevance
-from moatless.find.identify import IdentifyCode
-from moatless.find.search_v2 import SearchCode
+from codesearch.moatless.find.decide import DecideRelevance
+from codesearch.moatless.find.identify import IdentifyCode
+from codesearch.moatless.find.search_v2 import SearchCode

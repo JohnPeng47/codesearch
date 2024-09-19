@@ -4,9 +4,9 @@ from typing import List, Optional, Type
 
 from pydantic import BaseModel, Field
 
-from moatless.file_context import RankedFileSpan
-from moatless.state import AgenticState
-from moatless.types import (
+from codesearch.moatless.file_context import RankedFileSpan
+from codesearch.moatless.state import AgenticState
+from codesearch.moatless.types import (
     FileWithSpans,
     ActionRequest,
     ActionResponse,

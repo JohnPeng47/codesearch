@@ -1,9 +1,9 @@
-from moatless.index import CodeIndex, IndexSettings
-from moatless import FileRepository
-from moatless.workspace import Workspace
-from moatless.index.simple_faiss import VectorStoreType
-from moatless.codeblocks.module import Module
-from moatless.file_context import FileContext
+from codesearch.moatless.index import CodeIndex, IndexSettings
+from codesearch.moatless import FileRepository
+from codesearch.moatless.workspace import Workspace
+from codesearch.moatless.index.simple_faiss import VectorStoreType
+from codesearch.moatless.codeblocks.module import Module
+from codesearch.moatless.file_context import FileContext
 
 from pathlib import Path
 import os

@@ -5,10 +5,10 @@ from typing import Optional, Type, List
 import instructor
 from pydantic import BaseModel, Field
 
-from moatless.file_context import RankedFileSpan
-from moatless.index.types import SearchCodeHit
-from moatless.state import ActionResponse, AgenticState
-from moatless.types import (
+from codesearch.moatless.file_context import RankedFileSpan
+from codesearch.moatless.index.types import SearchCodeHit
+from codesearch.moatless.state import ActionResponse, AgenticState
+from codesearch.moatless.types import (
     ActionRequest,
     Message,
     UserMessage,

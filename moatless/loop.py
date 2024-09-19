@@ -11,17 +11,17 @@ from anthropic import Anthropic
 from litellm import token_counter, completion_cost, cost_per_token
 from pydantic import BaseModel, Field
 
-from moatless import Workspace
-from moatless.state import (
+from codesearch.moatless import Workspace
+from codesearch.moatless.state import (
     AgenticState,
     NoopState,
     Finished,
     Rejected,
     Pending,
 )
-from moatless.types import Response, Message, AssistantMessage, UserMessage
-from moatless.trajectory import Trajectory
-from moatless.types import (
+from codesearch.moatless.types import Response, Message, AssistantMessage, UserMessage
+from codesearch.moatless.trajectory import Trajectory
+from codesearch.moatless.types import (
     ActionRequest,
     Content,
 )

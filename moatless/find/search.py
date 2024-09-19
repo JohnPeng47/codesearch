@@ -5,9 +5,9 @@ from typing import Optional, Type, List
 import instructor
 from pydantic import BaseModel, Field
 
-from moatless.file_context import FileContext, RankedFileSpan
-from moatless.state import ActionResponse, AgenticState
-from moatless.types import (
+from codesearch.moatless.file_context import FileContext, RankedFileSpan
+from codesearch.moatless.state import ActionResponse, AgenticState
+from codesearch.moatless.types import (
     ActionRequest,
     Message,
     UserMessage,

@@ -4,9 +4,9 @@ import re
 import subprocess
 from typing import Optional
 
-from moatless.repository import CodeFile
-from moatless.types import VerificationError
-from moatless.verify.verify import Verifier
+from codesearch.moatless.repository import CodeFile
+from codesearch.moatless.types import VerificationError
+from codesearch.moatless.verify.verify import Verifier
 
 logger = logging.getLogger(__name__)
 

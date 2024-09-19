@@ -9,10 +9,10 @@ from llama_index.core.node_parser.node_utils import logger
 from llama_index.core.schema import BaseNode, TextNode
 from llama_index.core.utils import get_tqdm_iterable, get_tokenizer
 
-from moatless.codeblocks.codeblocks import PathTree, CodeBlock, CodeBlockType
-from moatless.codeblocks.parser.python import PythonParser
-from moatless.index.code_node import CodeNode
-from moatless.index.settings import CommentStrategy
+from codesearch.moatless.codeblocks.codeblocks import PathTree, CodeBlock, CodeBlockType
+from codesearch.moatless.codeblocks.parser.python import PythonParser
+from codesearch.moatless.index.code_node import CodeNode
+from codesearch.moatless.index.settings import CommentStrategy
 
 CodeBlockChunk = List[CodeBlock]
 

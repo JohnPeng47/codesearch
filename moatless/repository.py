@@ -7,10 +7,10 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-from moatless.codeblocks import get_parser_by_path
-from moatless.codeblocks.codeblocks import CodeBlockTypeGroup, CodeBlockType
-from moatless.codeblocks.module import Module
-from moatless.codeblocks.parser.python import PythonParser
+from codesearch.moatless.codeblocks import get_parser_by_path
+from codesearch.moatless.codeblocks.codeblocks import CodeBlockTypeGroup, CodeBlockType
+from codesearch.moatless.codeblocks.module import Module
+from codesearch.moatless.codeblocks.parser.python import PythonParser
 
 logger = logging.getLogger(__name__)
 

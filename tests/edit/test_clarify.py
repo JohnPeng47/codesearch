@@ -1,6 +1,6 @@
-from moatless.edit.clarify import ClarifyCodeChange, LineNumberClarification
-from moatless.loop import AgenticLoop
-from moatless.types import ActionResponse
+from codesearch.moatless.edit.clarify import ClarifyCodeChange, LineNumberClarification
+from codesearch.moatless.loop import AgenticLoop
+from codesearch.moatless.types import ActionResponse
 from utils import create_workspace
 
 

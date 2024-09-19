@@ -1,15 +1,15 @@
 import logging
 from typing import Optional
 
-from moatless.codeblocks.parser.python import PythonParser
-from moatless.file_context import FileContext
-from moatless.index import IndexSettings
-from moatless.index.code_index import CodeIndex
-from moatless.repository import FileRepository, CodeFile
-from moatless.types import FileWithSpans
-from moatless.verify.lint import PylintVerifier
-from moatless.verify.maven import MavenVerifier
-from moatless.types import VerificationError
+from codesearch.moatless.codeblocks.parser.python import PythonParser
+from codesearch.moatless.file_context import FileContext
+from codesearch.moatless.index import IndexSettings
+from codesearch.moatless.index.code_index import CodeIndex
+from codesearch.moatless.repository import FileRepository, CodeFile
+from codesearch.moatless.types import FileWithSpans
+from codesearch.moatless.verify.lint import PylintVerifier
+from codesearch.moatless.verify.maven import MavenVerifier
+from codesearch.moatless.types import VerificationError
 
 _parser = PythonParser()
 
@@ -39,7 +39,6 @@ class Workspace:
             max_tokens=max_file_context_tokens
         )
 
-
     @classmethod
     def from_dirs(
         cls,
@@ -61,7 +60,7 @@ class Workspace:
                 code_index = CodeIndex(
                     file_repo=file_repo,
                     settings=index_settings,
-                    max_results=max_results
+                    max_results=max_results,
                 )
                 code_index.run_ingestion()
                 code_index.persist(index_dir)

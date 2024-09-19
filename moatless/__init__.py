@@ -1,3 +1,3 @@
-from moatless.repository import FileRepository
-from moatless.workspace import Workspace
-from moatless.loop import AgenticLoop, Transitions
+from codesearch.moatless.repository import FileRepository
+from codesearch.moatless.workspace import Workspace
+from codesearch.moatless.loop import AgenticLoop, Transitions

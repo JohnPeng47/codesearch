@@ -8,7 +8,7 @@ import anthropic
 
 from llama_index.core.schema import TextNode
 
-from moatless.index.code_node import CodeNode
+from codesearch.moatless.index.code_node import CodeNode
 
 from .models import OpenAIModel, AnthropicModel, ModelArguments
 

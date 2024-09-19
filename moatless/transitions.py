@@ -1,15 +1,15 @@
 import logging
 from typing import Optional
 
-from moatless.edit.clarify import ClarifyCodeChange
-from moatless.edit.edit import EditCode
-from moatless.edit.plan import PlanToCode
-from moatless.edit.plan_lines import PlanToCodeWithLines
-from moatless.find.identify import IdentifyCode
-from moatless.find.decide import DecideRelevance
-from moatless.find.search_v2 import SearchCode
-from moatless.loop import Transitions, Transition
-from moatless.state import Rejected, Finished
+from codesearch.moatless.edit.clarify import ClarifyCodeChange
+from codesearch.moatless.edit.edit import EditCode
+from codesearch.moatless.edit.plan import PlanToCode
+from codesearch.moatless.edit.plan_lines import PlanToCodeWithLines
+from codesearch.moatless.find.identify import IdentifyCode
+from codesearch.moatless.find.decide import DecideRelevance
+from codesearch.moatless.find.search_v2 import SearchCode
+from codesearch.moatless.loop import Transitions, Transition
+from codesearch.moatless.state import Rejected, Finished
 
 CODE_TRANSITIONS = [
     Transition(

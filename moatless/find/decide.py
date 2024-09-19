@@ -3,8 +3,8 @@ from typing import Optional, Type
 
 from pydantic import BaseModel, Field
 
-from moatless.state import AgenticState
-from moatless.types import (
+from codesearch.moatless.state import AgenticState
+from codesearch.moatless.types import (
     ActionRequest,
     ActionResponse,
     Message,

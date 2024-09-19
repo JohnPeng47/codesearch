@@ -3,17 +3,17 @@ from typing import Type, Optional, Tuple, List
 
 from pydantic import PrivateAttr, Field, BaseModel
 
-from moatless.codeblocks import CodeBlockType
-from moatless.codeblocks.codeblocks import CodeBlockTypeGroup, BlockSpan
-from moatless.edit.prompt import CLARIFY_CHANGE_SYSTEM_PROMPT
-from moatless.repository import CodeFile
-from moatless.state import AgenticState, ActionResponse
-from moatless.types import (
+from codesearch.moatless.codeblocks import CodeBlockType
+from codesearch.moatless.codeblocks.codeblocks import CodeBlockTypeGroup, BlockSpan
+from codesearch.moatless.edit.prompt import CLARIFY_CHANGE_SYSTEM_PROMPT
+from codesearch.moatless.repository import CodeFile
+from codesearch.moatless.state import AgenticState, ActionResponse
+from codesearch.moatless.types import (
     FileWithSpans,
     ActionRequest,
     Message,
 )
-from moatless.utils.tokenizer import count_tokens
+from codesearch.moatless.utils.tokenizer import count_tokens
 
 logger = logging.getLogger("ClarifyCodeChange")
 

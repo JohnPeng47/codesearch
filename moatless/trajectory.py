@@ -5,8 +5,8 @@ from typing import Optional, Any, List
 from pydantic import BaseModel
 from pydantic_core import to_jsonable_python
 
-from moatless.state import AgenticState
-from moatless.types import ActionRequest
+from codesearch.moatless.state import AgenticState
+from codesearch.moatless.types import ActionRequest
 
 logger = logging.getLogger(__name__)
 
